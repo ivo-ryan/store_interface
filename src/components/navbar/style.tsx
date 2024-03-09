@@ -11,6 +11,7 @@ export const Nav = styled.nav`
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 0 2rem ;
 `;
 
 export const Search = styled.div`
@@ -20,10 +21,16 @@ export const Search = styled.div`
             color: black;
 
             select{
+               text-align: center;
                 color: black;
                 option{
                     color: black;
 
                 }
             }
+`;
+
+export const LocContainer = styled.div`
+            background-color: #232F3E;
+            height: 3.5rem;
 `;

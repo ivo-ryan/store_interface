@@ -21,6 +21,10 @@ export const Navbar = () => {
                     </S.Search>
                 </li>
             </S.Nav>
+
+            <S.LocContainer>
+
+            </S.LocContainer>
         </S.Header>
     )
 }

@@ -15,7 +15,7 @@ export const SectionProduct = styled.section`
 
 export const Product = styled.div`
         max-width: 240px;
-        height: 532.906px;
+        height: 432.906px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -31,14 +31,20 @@ export const ImageContainer = styled.div`
             justify-content: center;
             align-items: center;
             background-color: #F8F8F8;
-            width: 100%;
-            height: 50%;
+            max-width: 100%;
+            max-height: 50%;
 
             
-        img{
+        a{
+            width: 100%;
+            height: 100%;
+
+            img{
             max-height: 100%;
-            max-width: 100%;
+            width: 100%;
         }
+        }
+
 `;
 
 export const PriceProduct = styled.p`

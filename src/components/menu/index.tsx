@@ -3,6 +3,7 @@ import { Navbar } from "../navbar/navbar";
 import axios from "axios";
 import { MenuTypes } from "../../types/menuTypes";
 import * as S from './style';
+import { Link } from "react-router-dom";
 
 export const Menu = () => {
 
@@ -60,16 +61,17 @@ export const Menu = () => {
                         return(
                             <S.Product key={index}>
                                 <S.ImageContainer>
+                                <Link to={`/product/${product._id}/fitness`}>
 
                                 <img src={product.image[0].image_url} alt={product.marca} />
 
+                                </Link>
                                 </S.ImageContainer>
 
                                 <p>{product.description}</p>
                                 <S.PriceProduct>
                                     <span>R$</span>
                                     {product.price}</S.PriceProduct>
-
                                 <S.ButtonAdd>Adicionar ao carrinho</S.ButtonAdd>
 
                             </S.Product>
@@ -83,19 +85,21 @@ export const Menu = () => {
                     tecnolog.map(( product, index ) => {
                         return(
                             <S.Product key={index}>
-                                <S.ImageContainer>
+                            <S.ImageContainer>
+                            <Link to={`/product/${product._id}/fitness`}>
 
                             <img src={product.image[0].image_url} alt={product.marca} />
 
+                            </Link>
                             </S.ImageContainer>
-                                <p>{product.description}</p>
-                                <S.PriceProduct>
-                                    <span>R$</span>
-                                    {product.price}</S.PriceProduct>
 
-                                <S.ButtonAdd>Adicionar ao carrinho</S.ButtonAdd>
+                            <p>{product.description}</p>
+                            <S.PriceProduct>
+                                <span>R$</span>
+                                {product.price}</S.PriceProduct>
+                            <S.ButtonAdd>Adicionar ao carrinho</S.ButtonAdd>
 
-                            </S.Product>
+                        </S.Product>
                         )
                     })
                 }
@@ -105,17 +109,18 @@ export const Menu = () => {
                     moda.map(( product, index ) => {
                         return(
                             <S.Product key={index}>
-                               <S.ImageContainer>
+                                <S.ImageContainer>
+                                <Link to={`/product/${product._id}/fitness`}>
 
                                 <img src={product.image[0].image_url} alt={product.marca} />
 
+                                </Link>
                                 </S.ImageContainer>
 
                                 <p>{product.description}</p>
                                 <S.PriceProduct>
                                     <span>R$</span>
                                     {product.price}</S.PriceProduct>
-
                                 <S.ButtonAdd>Adicionar ao carrinho</S.ButtonAdd>
 
                             </S.Product>
