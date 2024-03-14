@@ -86,7 +86,7 @@ export const Menu = () => {
                         return(
                             <S.Product key={index}>
                             <S.ImageContainer>
-                            <Link to={`/product/${product._id}/fitness`}>
+                            <Link to={`/product/${product._id}/tecnologia`}>
 
                             <img src={product.image[0].image_url} alt={product.marca} />
 
@@ -110,7 +110,7 @@ export const Menu = () => {
                         return(
                             <S.Product key={index}>
                                 <S.ImageContainer>
-                                <Link to={`/product/${product._id}/fitness`}>
+                                <Link to={`/product/${product._id}/moda`}>
 
                                 <img src={product.image[0].image_url} alt={product.marca} />
 

@@ -84,6 +84,17 @@ export const Details = () => {
                         })
                     }
 
+                    <section>
+                        <div>
+                            Quantidade + 1 -
+                        </div>
+                        <div>
+                            <button>
+                                Adicionar ao carrinho
+                            </button>
+                        </div>
+                    </section>
+
                 
             </S.MainContainer>
         </>

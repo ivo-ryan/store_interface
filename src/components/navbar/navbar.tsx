@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import * as S from './style';
 
 export const Navbar = () => {
@@ -24,6 +25,13 @@ export const Navbar = () => {
 
             <S.LocContainer>
 
+                <Link to={'/login'}>
+
+                    <h2>
+                        Login
+                    </h2>
+
+                </Link>
             </S.LocContainer>
         </S.Header>
     )
