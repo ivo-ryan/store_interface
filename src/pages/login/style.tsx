@@ -71,6 +71,20 @@ export const InputContainer = styled.div<{colorb: string}>`
                     font-size: 14px;               
                    
 `;
+
+export const InputContainerUser = styled.div<{colorb: string}>`
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    padding: 10px 20px ;
+                    margin-bottom: 5px;
+                    background-color: transparent;
+                    border-radius: 4px;
+                    color: #ffffffb2 ;
+                    border: 1px solid ${p => p.colorb};
+                    font-size: 14px;               
+                   
+`;
 export const InputContainerPass = styled.div<{colorb: string}>`
                     display: flex;
                     flex-direction: column;
@@ -139,7 +153,22 @@ export const MsgSucesso = styled.div`
 `;
 
 export const Valid = styled.div<{display:string}>`
-            display: flex;
+            display: ${ props => props.display };
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            gap: 5px;
+            color: rgb(229, 9, 20);
+            font-size: 14px;
+           
+
+            p{
+                color: rgb(229, 9, 20);
+            }
+`;
+
+export const ValidUser = styled.div<{display:string}>`
+             display: ${ props => props.display };
             justify-content: flex-start;
             align-items: center;
             width: 100%;
