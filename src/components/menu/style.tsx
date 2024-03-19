@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const MainContainer = styled.main`
+            margin-top: 10%;
+            transition: all .5s ease;
+
+            @media (max-width: 768px) {
+                margin-top: 20%;
+            }
+`;
+
 export const SectionProduct = styled.section`
             display: flex;
             justify-content: center;
@@ -58,19 +67,4 @@ export const PriceProduct = styled.p`
             font-size: 1.2rem;
             
         }
-`;
-
-export const ButtonAdd = styled.button`
-        color: black;
-        background-color:#FFD814; ;
-        border: none;
-        border-radius: 10rem ;
-        padding: .5rem 1.5rem  ;
-        cursor: pointer;
-        transition: all .5s;
-
-        &:hover{
-            background-color: #F7CA00;
-        }
-
 `;

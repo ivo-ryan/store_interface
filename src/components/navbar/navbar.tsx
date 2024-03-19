@@ -1,7 +1,23 @@
-import { Link } from 'react-router-dom';
 import * as S from './style';
+import { Login } from '../login';
+import { useState } from 'react';
 
 export const Navbar = () => {
+    const block = {
+        view: "block",
+        hide: "none"
+    };
+
+    const [ display, setDisplay ] = useState(block.hide);    
+
+    const handleClickDisplay = () => {
+        if ( display === block.hide ) {
+            setDisplay(block.view);
+        }else{
+            setDisplay(block.hide);
+        }
+    };
+
     return (
         <S.Header>
             <S.Nav>
@@ -25,13 +41,16 @@ export const Navbar = () => {
 
             <S.LocContainer>
 
-                <Link to={'/login'}>
-
-                    <h2>
+                <div >
+                    <h2 onClick={() => setDisplay(block.view)}>
                         Login
                     </h2>
+                </div>
 
-                </Link>
+                <Login
+                display={display}
+                handleClickDisplay={handleClickDisplay}
+                />
             </S.LocContainer>
         </S.Header>
     )

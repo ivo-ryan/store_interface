@@ -4,6 +4,10 @@ export const Header = styled.header`
         width: 100%;
         height: 60px;
         background-color: #131921;
+        position: absolute ;
+        z-index: 2;
+        position: fixed;
+        top: 0;
 `;
 
 export const Nav = styled.nav`
@@ -31,6 +35,7 @@ export const Search = styled.div`
 `;
 
 export const LocContainer = styled.div`
-            background-color: #232F3E;
-            height: 3.5rem;
+                position: relative;
+                background-color: #232F3E;
+                height: 3.5rem;
 `;

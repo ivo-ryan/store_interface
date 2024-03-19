@@ -8,8 +8,12 @@ export const FormContainer = styled.div`
         width: 100%;
         height: 100%;       
         border-radius: 10px;
-        margin-top: 50px;
+        margin-top: 10%;
+        transition: all .5s ease;
         
+        @media (max-width: 768px) {
+            margin-top: 15%;
+        }
         
 `;
 
@@ -184,7 +188,7 @@ export const ValidUser = styled.div<{display:string}>`
 
 
 export const ValidPass = styled.div<{display: string}>`
-            display: flex;
+            display: ${ props => props.display };
             justify-content: flex-start;
             align-items: center;
             width: 100%;

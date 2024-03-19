@@ -1,8 +1,10 @@
 import { FormEvent, useState } from 'react';
 import { Navbar } from '../../components/navbar/navbar';
 import * as S from './style';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-export const Login = () => {
+export const Cadastro = () => {
 
     const valid = {
         checked: "green",
@@ -29,13 +31,27 @@ export const Login = () => {
     const [ user, setUser ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
-    console.log(user);
-    console.log(email);
-    
+
+    const [ loading , setLoading ] = useState(false);
+    const [ dispatch, setDispatch ] = useState(false);
+    console.log(dispatch);
     
     
     const handleClickUser = (event:any) => {
-        setUser(event.target.value)
+        if (event.target.value.length >= 4 ) {
+            setUser(event.target.value);
+            setCheckUser(valid.checked);
+            setDisplayUser(msg.hide);
+            
+        }else{
+            setCheckUser(valid.notValid);
+            setDisplayUser(msg.view);
+        }
+
+        if (event.target.value.length > 10 ) {
+            setCheckUser(valid.notValid);
+            setDisplayUser(msg.view);
+        }
     };
 
     const handleClickEmail = (event:any) => {
@@ -51,41 +67,54 @@ export const Login = () => {
         
     };
 
-    const handleClickPass = (event:any) => {
-        setPassword(event.target.value)
+    const handleClickPass = async (event:any) => {
+        if (event.target.value.length >= 4 ) {
+            setPassword(event.target.value);
+            setCheckPass(valid.checked);
+            setDisplayPass(msg.hide);
+            
+        }else{
+            setCheckPass(valid.notValid);
+            setDisplayPass(msg.view);
+        }
+
+        if (event.target.value.length > 15 ) {
+            setCheckPass(valid.notValid);
+            setDisplayPass(msg.view);
+        }
     };
 
     const handleSubmit = async (event: FormEvent) => {
         event.preventDefault();
     
-        // if (!user.length || !password.length) {
-        //     return
-        // };
+        if (!user.length || !password.length || !email.length) {
+            return
+        };
     
-        // if (password.length <= 4 || password.length > 15 || re.test(user) === false ) {
-        //     return   
+        if (password.length < 4 || password.length > 15 || user.length < 4 || user.length > 10  || re.test(email) === false ) {
+            return   
             
-        // }
+        }
         
         
-        // setLoading(true)
+        setLoading(true)
         
-        // setDispatch(true);
-        // const api =  axios.create({
-        //     baseURL: "https://animes-api-k6xs.onrender.com"
-        // })
+        setDispatch(true);
+        const api =  axios.create({
+            baseURL: "https://store-api-gbye.onrender.com"
+        });
     
-        // const response = await api.post("/user",{
-        //     email: user,
-        //     senha: password
-        // })
+        const response = await api.post("/user",{
+            user: user,
+            email: email,
+            senha: password
+        });
     
-        // console.log(response.status);
+        console.log(response);
     
+        setLoading(false);
     
-        // setLoading(false);
-    
-      }
+      };
 
     return (
 
@@ -106,19 +135,19 @@ export const Login = () => {
 
     <S.InputContainerUser colorb={checkUser}>
 
-        <label htmlFor="user">User </label>
+        <label htmlFor="user"> Nome </label>
 
         <input 
         type="text" 
         name="user" 
         id="user" 
-        autoComplete='true'
+        autoComplete='false'
         onChange={handleClickUser}
       />
 
     </S.InputContainerUser>
 
-    <S.ValidUser display={displayUser}><p>Informe um nome de Usuário válido!</p> </S.ValidUser>
+    <S.ValidUser display={displayUser}><p>O usuário deve ter entre 4 e 10 caracteres!</p> </S.ValidUser>
 
     </S.BoxInput>
 
@@ -144,7 +173,7 @@ export const Login = () => {
 
     <S.BoxInput>
 
-    <S.InputContainerPass colorb=''>
+    <S.InputContainerPass colorb={checkPass}>
 
         <label htmlFor="password">Senha</label>
 
@@ -157,24 +186,30 @@ export const Login = () => {
 
     </S.InputContainerPass>
 
-        <S.ValidPass display=''>
+        <S.ValidPass display={displayPass}>
         {/* <BiXCircle/> */}
             <p>A senha deve ter entre 4 e 15 caracteres!</p>
         </S.ValidPass>
 
     </S.BoxInput> 
     <S.Submit>
-            <button>Cadastrar</button>
-  
+    {
+                    dispatch === true ? 
+                    <Link to={"/"}>
+                         <button >Entrar</button>
+                    </Link>
+                    :
+                    <button>Cadastrar</button>
+                }
     </S.Submit>
 
 </form>
 
     </S.FormC> 
-
-    <S.MsgSucesso>
-        <p>Usuário cadastrado com sucesso!</p>
-    </S.MsgSucesso>  
+    {loading && 
+            <S.MsgSucesso>
+                <p>Usuário cadastrado com sucesso!</p>
+            </S.MsgSucesso>  }
     
 
 </S.Container>
@@ -183,4 +218,4 @@ export const Login = () => {
 
     )
 
-}
+};

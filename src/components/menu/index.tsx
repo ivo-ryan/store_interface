@@ -4,6 +4,7 @@ import axios from "axios";
 import { MenuTypes } from "../../types/menuTypes";
 import * as S from './style';
 import { Link } from "react-router-dom";
+import { ButtonAdd } from "../button";
 
 export const Menu = () => {
 
@@ -53,7 +54,7 @@ export const Menu = () => {
     return (
         <>
         <Navbar/>
-        <main>
+        <S.MainContainer>
 
             <S.SectionProduct>
                 {
@@ -72,7 +73,12 @@ export const Menu = () => {
                                 <S.PriceProduct>
                                     <span>R$</span>
                                     {product.price}</S.PriceProduct>
-                                <S.ButtonAdd>Adicionar ao carrinho</S.ButtonAdd>
+                                <ButtonAdd
+                                    id={product._id}
+                                    description={product.description}
+                                    image={product.image[0].image_url}
+                                    price={product.price}
+                                />
 
                             </S.Product>
                         )
@@ -97,7 +103,13 @@ export const Menu = () => {
                             <S.PriceProduct>
                                 <span>R$</span>
                                 {product.price}</S.PriceProduct>
-                            <S.ButtonAdd>Adicionar ao carrinho</S.ButtonAdd>
+
+                            <ButtonAdd
+                                id={product._id}
+                                description={product.description}
+                                image={product.image[0].image_url}
+                                price={product.price}
+                            />
 
                         </S.Product>
                         )
@@ -121,14 +133,20 @@ export const Menu = () => {
                                 <S.PriceProduct>
                                     <span>R$</span>
                                     {product.price}</S.PriceProduct>
-                                <S.ButtonAdd>Adicionar ao carrinho</S.ButtonAdd>
+
+                                    <ButtonAdd
+                                        id={product._id}
+                                        description={product.description}
+                                        image={product.image[0].image_url}
+                                        price={product.price}
+                                    />
 
                             </S.Product>
                         )
                     })
                 }
             </S.SectionProduct>
-        </main>
+        </S.MainContainer>
         </>
     )
 }
