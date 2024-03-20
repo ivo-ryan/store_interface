@@ -3,15 +3,30 @@ import * as S from './style';
 interface LoginProps {
     display: string,
 
-    handleClickDisplay: () => void
+    handleClickDisplay: () => void,
+
+    setEmail: (value: React.SetStateAction<string>) => void,
+
+    setPassWord: (value: React.SetStateAction<string>) => void
 }
 
-export const Login = ({ display, handleClickDisplay }: LoginProps) => {
+export const Login = ({ display, handleClickDisplay , setEmail , setPassWord }: LoginProps) => {
+
+    const handleChangeEmail = (event:any) => {
+        setEmail(event.target.value)
+    }
+    const handleChangePassword = (event:any) => {
+        setPassWord(event.target.value)
+    }
 
     return(
         <S.SectionContainer display={display}>
             <div onClick={() => handleClickDisplay()}>
                 <BiXCircle/>
+            </div>
+
+            <div>
+                <h2>Digite  seu email e senha cadastradas</h2>
             </div>
 <form >
 
@@ -27,6 +42,7 @@ export const Login = ({ display, handleClickDisplay }: LoginProps) => {
      name="email ou numero" 
      id="email" 
      autoComplete='true'
+     onChange={handleChangeEmail}
    />
 
  </S.InputContainer>
@@ -42,7 +58,8 @@ export const Login = ({ display, handleClickDisplay }: LoginProps) => {
      <input 
      type="password" 
      name="senha" 
-     id="password" 
+     id="password"
+     onChange={handleChangePassword} 
      />
 
  </S.InputContainerPass>
@@ -53,6 +70,12 @@ export const Login = ({ display, handleClickDisplay }: LoginProps) => {
  </S.Submit>
 
 </form>
+
+<div>
+    <h2>
+        Ainda não é cadastrado? 
+    </h2>
+</div>
         </S.SectionContainer>
     )
 }

@@ -11,6 +11,10 @@ export const Menu = () => {
     const [ fitness, setFitness ] = useState<MenuTypes[]>([]);
     const [ tecnolog, setTecnolog ] = useState<MenuTypes[]>([]);
     const [ moda, setModa ] = useState<MenuTypes[]>([]);
+    const [ userId, setUserId ] = useState<string>('');
+
+    console.log(userId);
+    
 
     useEffect(() => {
         const fecthData = async () => {
@@ -19,6 +23,7 @@ export const Menu = () => {
             const res = req.data;
 
             setFitness(res)
+
         }
 
         fecthData()
@@ -53,7 +58,7 @@ export const Menu = () => {
 
     return (
         <>
-        <Navbar/>
+        <Navbar setUser={setUserId}/>
         <S.MainContainer>
 
             <S.SectionProduct>
