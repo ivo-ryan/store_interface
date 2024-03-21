@@ -22,9 +22,6 @@ export const Navbar = ({ setUser }:userProps) => {
     const [ filterPass, setFilterPass ] = useState([]);
     const [ filterEmail, setFilterEmail ] = useState([]);
     const [data , setData] = useState([]);
-
-    console.log(data);
-    
     
 
     const handleClickDisplay = () => {
@@ -41,11 +38,12 @@ export const Navbar = ({ setUser }:userProps) => {
 
             const data = await req.data ;
 
-            const resEmail = data.map( (e:DataUser) => e.email );
+            const resEmail = data.map( (e:DataUser ) => e.email );
 
             const resPassword = data.map( (e:DataUser ) => e.senha );
 
             setData(data)
+           
             setFilterEmail(resEmail);
             setFilterPass(resPassword)
              
@@ -58,12 +56,16 @@ export const Navbar = ({ setUser }:userProps) => {
 
     const comparison = () => {
         
-        const emailFilter = filterEmail.filter(e => e === email);
+        const emailRes = filterEmail.filter(( e , i ) => {
+           if (e === email) {
+             setUser(data[i]);
+             
+           }    
+        })
 
-        const passwordFilter = filterPass.filter(e => e === password);
+        const passRes = filterPass.filter(e => e === password)
+    
         
-
-        console.log(passwordFilter[0], emailFilter[0]);
         
     }
 

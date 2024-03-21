@@ -15,6 +15,7 @@ export const Menu = () => {
 
     console.log(userId);
     
+    
 
     useEffect(() => {
         const fecthData = async () => {
@@ -79,7 +80,7 @@ export const Menu = () => {
                                     <span>R$</span>
                                     {product.price}</S.PriceProduct>
                                 <ButtonAdd
-                                    id={product._id}
+                                    id={userId._id}
                                     description={product.description}
                                     image={product.image[0].image_url}
                                     price={product.price}
@@ -110,7 +111,7 @@ export const Menu = () => {
                                 {product.price}</S.PriceProduct>
 
                             <ButtonAdd
-                                id={product._id}
+                                id={userId._id}
                                 description={product.description}
                                 image={product.image[0].image_url}
                                 price={product.price}
@@ -140,7 +141,7 @@ export const Menu = () => {
                                     {product.price}</S.PriceProduct>
 
                                     <ButtonAdd
-                                        id={product._id}
+                                        id={userId._id}
                                         description={product.description}
                                         image={product.image[0].image_url}
                                         price={product.price}

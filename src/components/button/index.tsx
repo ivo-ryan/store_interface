@@ -4,6 +4,8 @@ import * as S from './style';
 
 export const ButtonAdd = ({ description,id , image, price }:ButtonAddProps) => {
 
+    console.log(id);
+    
     const handlePost = async () => {
         const api =  axios.create({
             baseURL: "https://store-api-gbye.onrender.com"
@@ -15,8 +17,7 @@ export const ButtonAdd = ({ description,id , image, price }:ButtonAddProps) => {
                     image_url: image ,
                     description: description,
                     price: price,
-                },
-
+                }
             ]
         });
 
@@ -26,7 +27,7 @@ export const ButtonAdd = ({ description,id , image, price }:ButtonAddProps) => {
     
     return (
         <>
-            <S.Button >Adicionar ao carrinho</S.Button>
+            <S.Button onClick={handlePost}>Adicionar ao carrinho</S.Button>
         </>
     )
 }
