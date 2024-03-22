@@ -1,6 +1,6 @@
 import { Menu } from "../../components/menu"
 
-export const Home = () => {
+export const Dashboard = () => {
     return (
         <>
             <Menu/>
