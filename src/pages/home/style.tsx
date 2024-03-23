@@ -18,6 +18,7 @@ export const LoginContainer = styled.div`
         align-items: center;
         flex-direction: column;
         background: rgb(0 0 0 / 50%);
+        color: #fff ;
 
 `;
 
@@ -44,12 +45,12 @@ export const ContainerH2 = styled.div`
 
         h2{
             text-align: center;
-            font-size: 50px;
+            font-size: 5rem;
         }
 
         @media (max-width: 425px){
                 h2{
-                    font-size: 30px;
+                    font-size: 3rem;
                 }
         }
 
@@ -57,7 +58,7 @@ export const ContainerH2 = styled.div`
 
 export const ContainerText = styled.div`
          p{
-            font-size: 1.3rem;
+            font-size: 2.3rem;
         }
 
         @media (max-width: 425px) {
@@ -76,7 +77,7 @@ export const ContainerValidate = styled.div`
         gap: 16px;
 
         p{
-            font-size: 1.2rem;
+            font-size: 2.2rem;
         }
 
         @media (max-width: 768px) {
@@ -98,9 +99,9 @@ export const ContainerButtom = styled.div`
 
         button{
             width: 30% ;
-            font-size: 1.5rem;
+            font-size: 2.1rem;
             background-color:rgb(229, 9, 20) ;
-            color: var(--color) ;
+            color: #fff ;
             border: none;
             border-radius: 4px;
             font-weight: bold ;
@@ -108,12 +109,13 @@ export const ContainerButtom = styled.div`
             cursor: pointer;
 
             &:hover{
-                background-color: var(--color-principal) ;
+                background-color: #C11119 ;
             }
         }
 
         a{
             width: 30%;
+            text-decoration: none ;
 
             button{
                 width: 100%;

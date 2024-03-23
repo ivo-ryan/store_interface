@@ -1,8 +1,8 @@
 import * as S from "./style";
-import { Navbar } from "../../components/navbar/navbar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { HomeUser } from "../../types/homeTypes";
 
 
 
@@ -13,40 +13,51 @@ export const Home = () => {
         padrao: "#ffffffb2",
     };
 
-    const [ emailPass , setEmailPass ] = useState<string>('');
-    // const [ user, setUser ] = useState<Data[]>([]);
-    const [ valid, setValid ] = useState<string>(borderColor.padrao);
-    const [ loading , setLoading ] = useState(false);
+    const re:RegExp =
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
+    const [ emailPass , setEmailPass ] = useState<string>('');
+     const [ user, setUser ] = useState<HomeUser[]>([]);
+    const [ valid, setValid ] = useState<string>(borderColor.padrao);
+    const [ id , setId ] = useState<string>('');
+    
     useEffect(() => {
-        setLoading(true);
+
         const fetchData = async () => {
-            const api = await axios.get("https://animes-api-k6xs.onrender.com/user");
-            const res = api.data;  
-            
-            setLoading(false)
-        //    setUser(res);          
+            const api = await axios.get("https://store-api-gbye.onrender.com/user");
+            const res = api.data;
+              
+           setUser(res);          
         }
 
         fetchData()
 
     },[]);
 
-    // const data = user.filter((e:Data ) => {return e.email === emailPass});
-    // const emailRes = data.map((e:Data) => e.email); 
+    const data = user.filter((e:HomeUser ) => {return e.email === emailPass});
+    
+    const emailRes = data.map((e:HomeUser) => e.email); 
+    
     
     const handleClick = () => {
         
-    //     if (emailRes[0]  !== emailPass) {
-    //         return setValid(borderColor.notValid);
+        if (emailRes[0]  !== emailPass) {
+            return setValid(borderColor.notValid);
             
-    //     }
+        }
 
     }
       
 
     const handleEmail = (event:any) => {
         setEmailPass(event.target.value);
+
+        if (data) {         
+            const userId = data.map(e => e._id)
+            setId(userId[0])
+
+        }
+
     }
 
 
@@ -89,11 +100,18 @@ export const Home = () => {
                             <input type="text" id="login" onChange={handleEmail}/>
                         </S.InputContainer>
 
-                    
-                        
+                        {
+                        emailRes[0] === emailPass ? (
+                            <Link to={`/dashboard/${id}`}>
+                        <button onClick={handleClick}>
+                            Entrar
+                        </button>
+                            </Link>
+                        ): 
                         <button onClick={handleClick}>
                         Entrar
                         </button>
+                    }
 
                     
 
