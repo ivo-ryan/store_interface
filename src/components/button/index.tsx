@@ -2,25 +2,24 @@ import axios from 'axios';
 import { ButtonAddProps } from '../../types/buttonTypes';
 import * as S from './style';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 //import { CgNametag } from 'react-icons/cg';
 
-export const ButtonAdd = ({ description,id , image, price }:ButtonAddProps) => {
+export const ButtonAdd = ({ description , image, price, marca, name }:ButtonAddProps) => {
 
-    console.log(id);
+    const { id } = useParams();
+    
 
     const [ cart , setCart ] = useState([]);
-    console.log(cart);
+    console.log(cart.length);
     
 
     useEffect(() => {
         const fetchData = async () => {
-            if (id.length === 0 ) {
-                return
-            }else{ 
             const res = await axios.get(`https://store-api-gbye.onrender.com/user/${id}`)
 
             const req = await res.data
-            setCart(req.cart);}          
+            setCart(req.cart);          
         }
 
         fetchData()
@@ -31,13 +30,16 @@ export const ButtonAdd = ({ description,id , image, price }:ButtonAddProps) => {
             baseURL: "https://store-api-gbye.onrender.com"
         });
     
-        const response = await api.put(`/ user/${id}`,{
+        const response = await api.post(`/ user/${id}`,{
             cart: [
                 {   
 
                     image_url: image ,
                     description: description,
                     price: price,
+                    id: cart.length + 1,
+                    name: name,
+                    marca: marca
                 }
             ]
         });

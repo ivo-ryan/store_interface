@@ -13,13 +13,9 @@ export const Home = () => {
         padrao: "#ffffffb2",
     };
 
-    const re:RegExp =
-    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
     const [ emailPass , setEmailPass ] = useState<string>('');
      const [ user, setUser ] = useState<HomeUser[]>([]);
     const [ valid, setValid ] = useState<string>(borderColor.padrao);
-    const [ id , setId ] = useState<string>('');
     
     useEffect(() => {
 
@@ -35,30 +31,20 @@ export const Home = () => {
     },[]);
 
     const data = user.filter((e:HomeUser ) => {return e.email === emailPass});
-    
+
     const emailRes = data.map((e:HomeUser) => e.email); 
-    
     
     const handleClick = () => {
         
         if (emailRes[0]  !== emailPass) {
-            return setValid(borderColor.notValid);
-            
+            return setValid(borderColor.notValid);  
         }
-
-    }
+    };
       
 
     const handleEmail = (event:any) => {
         setEmailPass(event.target.value);
-
-        if (data) {         
-            const userId = data.map(e => e._id)
-            setId(userId[0])
-
-        }
-
-    }
+    };
 
 
     return (
@@ -102,7 +88,7 @@ export const Home = () => {
 
                         {
                         emailRes[0] === emailPass ? (
-                            <Link to={`/dashboard/${id}`}>
+                            <Link to={`/dashboard/${data[0]._id}`}>
                         <button onClick={handleClick}>
                             Entrar
                         </button>
@@ -118,6 +104,12 @@ export const Home = () => {
                     </S.ContainerButtom>
 
                 </S.ContainerValidate>
+
+                <S.ContainerRegister>
+                    <Link to={"/login"}>
+                    <p>Não sou cadastrado</p>
+                    </Link>
+                </S.ContainerRegister>
             </S.LoginContainer>
             </div>           
         </S.MainContainer>

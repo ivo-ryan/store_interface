@@ -11,9 +11,6 @@ export const Menu = () => {
     const [ fitness, setFitness ] = useState<MenuTypes[]>([]);
     const [ tecnolog, setTecnolog ] = useState<MenuTypes[]>([]);
     const [ moda, setModa ] = useState<MenuTypes[]>([]);
-    const [ userId, setUserId ] = useState<string>('');
-
-    console.log(userId);
     
     
 
@@ -59,7 +56,7 @@ export const Menu = () => {
 
     return (
         <>
-        <Navbar setUser={setUserId}/>
+        <Navbar />
         <S.MainContainer>
 
             <S.SectionProduct>
@@ -80,7 +77,8 @@ export const Menu = () => {
                                     <span>R$</span>
                                     {product.price}</S.PriceProduct>
                                 <ButtonAdd
-                                    id={userId._id}
+                                    name={product.name}
+                                    marca={product.marca}
                                     description={product.description}
                                     image={product.image[0].image_url}
                                     price={product.price}
@@ -111,7 +109,8 @@ export const Menu = () => {
                                 {product.price}</S.PriceProduct>
 
                             <ButtonAdd
-                                id={userId._id}
+                                name={product.name}
+                                marca={product.marca}
                                 description={product.description}
                                 image={product.image[0].image_url}
                                 price={product.price}
@@ -141,7 +140,8 @@ export const Menu = () => {
                                     {product.price}</S.PriceProduct>
 
                                     <ButtonAdd
-                                        id={userId._id}
+                                        name={product.name}
+                                        marca={product.marca}
                                         description={product.description}
                                         image={product.image[0].image_url}
                                         price={product.price}

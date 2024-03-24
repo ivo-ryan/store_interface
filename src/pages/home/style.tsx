@@ -7,6 +7,7 @@ export const MainContainer = styled.main`
         background-size: cover ;
         background-repeat: no-repeat ;
         background-attachment: fixed ;
+        
 `;
 
 
@@ -30,6 +31,7 @@ export const Apresentação = styled.div`
         height: 50%;
         width: 80%;
         gap: 16px;
+        transition: all .5s ease;
 
         @media (max-width: 768px) {
             width: 80%;
@@ -42,7 +44,7 @@ export const Apresentação = styled.div`
 `;
 
 export const ContainerH2 = styled.div`
-
+            transition: all .5s ease;
         h2{
             text-align: center;
             font-size: 5rem;
@@ -57,6 +59,7 @@ export const ContainerH2 = styled.div`
 `;
 
 export const ContainerText = styled.div`
+            transition: all .5s ease;
          p{
             font-size: 2.3rem;
         }
@@ -75,6 +78,7 @@ export const ContainerValidate = styled.div`
         width: 50%;
         margin-bottom: 100px;
         gap: 16px;
+        transition: all .5s ease;
 
         p{
             font-size: 2.2rem;
@@ -152,7 +156,7 @@ export const InputContainer = styled.div<{colorb: string}>`
 
     input{
         background-color: transparent;
-        color: var(--color);
+        color:#fff ;
         min-height: 16px;
         min-width: 16px;
         outline: none;
@@ -162,4 +166,24 @@ export const InputContainer = styled.div<{colorb: string}>`
     }
     
 
+`;
+
+
+export const ContainerRegister = styled.section`
+        width: 100%;
+        padding: 2rem 0;
+        text-align: center;
+        background-color: #4444448b;
+        text-decoration: none;
+
+        p{
+            color: rgba(255, 255, 255, 0.7) ;
+            font-size: 2rem;
+            font-weight: 700;
+            transition: all .5s ease;
+
+            &:hover{
+                color: #f31621  ;
+            }
+        }
 `;

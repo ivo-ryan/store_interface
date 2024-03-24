@@ -1,6 +1,7 @@
 export interface ButtonAddProps {
     image: string,
     description: string,
-    id: string,
-    price: string
+    price: string,
+    name: string,
+    marca: string
 }
