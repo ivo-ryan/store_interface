@@ -10,13 +10,32 @@ export const ButtonAdd = ({ description , image, price, marca, name }:ButtonAddP
     const { id } = useParams();
 
     const  [ user, setUser ] = useState<UserPutProps[]>([]);
+    console.log(user);
+    const [ product, setProduct ] = useState({
+                    image_url: '' ,
+                    description: '',
+                    price: '',
+                    name: '',
+                    marca: ''
+                
+    })
+    
     
     useEffect(() => {
         const fetchData = async () => {
             const res = await axios.get(`https://store-api-gbye.onrender.com/user/${id}`)
 
-            const req = await res.data
+            const req = await res.data;
+
             setUser(req.cart)
+            setProduct({
+                    image_url: image ,
+                    description: description,
+                    price: price,
+                    name: name,
+                    marca: marca
+                
+            })
 
             
         }
@@ -32,27 +51,7 @@ export const ButtonAdd = ({ description , image, price, marca, name }:ButtonAddP
         const response = await api.put(`/ user/${id}`,{
 
             cart: [
-
-                user.map((item) => {
-                    return (
-                        {
-                            description: item.description,
-                            id: item.id,
-                            image: item.image,
-                            marca: item.marca,
-                            price: item.price
-                        }
-                    )
-                }),
-
-                {   
-                    id: user.length + 1 ,
-                    image_url: image ,
-                    description: description,
-                    price: price,
-                    name: name,
-                    marca: marca
-                }
+                {product}
             ]
         });
 
