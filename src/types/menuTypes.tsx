@@ -11,3 +11,11 @@ export interface MenuTypes{
     price: string,
     _id: string
 }
+
+export interface DispatchTypes{
+    description: string,
+    image: string,
+    marca: string,
+    name: string,
+    price: string,
+}
