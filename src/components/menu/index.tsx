@@ -4,7 +4,6 @@ import axios from "axios";
 import { DispatchTypes, MenuTypes } from "../../types/menuTypes";
 import * as S from './style';
 import { Link, useParams } from "react-router-dom";
-import { ButtonAdd } from "../button";
 
 export const Menu = () => {
 
@@ -14,20 +13,26 @@ export const Menu = () => {
     const [ tecnolog, setTecnolog ] = useState<MenuTypes[]>([]);
     const [ moda, setModa ] = useState<MenuTypes[]>([]);
 
-    const [ dispatch, setDispatch ] = useState<DispatchTypes>({
+    const [ dispatch, setDispatch ] = useState<DispatchTypes[]>([
+        {
         description: '',
         image: '',
         marca: '',
         name: '',
         price: ''
-    });
+    }
+]);
 
-    const [ user, setUser ] = useState([]);
-   console.log(user);
-
-    user.push(dispatch)
-    
-
+    const [ user, setUser ] = useState([
+        {
+            description: '',
+            image: '',
+            marca: '',
+            name: '',
+            price: ''
+        }
+    ]);
+   
     useEffect(() => {
         const fecthData = async () => {
             const req = await axios.get("https://store-api-gbye.onrender.com/fitness");
@@ -68,31 +73,25 @@ export const Menu = () => {
 
     }, []);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const res = await axios.get(`https://store-api-gbye.onrender.com/user/${id}`)
+    
+    const handlePost = async () => {  
+        
+        const res = await axios.get(`https://store-api-gbye.onrender.com/user/${id}`)
 
             const req = await res.data;
-
-            setUser(req.cart)
-        }
-        fetchData()
-    }, [] )
-    
-    const handlePost = async () => {
+            setUser(req.cart);
+   
         const api =  axios.create({
             baseURL: "https://store-api-gbye.onrender.com"
         });
     
-        const response = await api.put(`/ user/${id}`,{
+        const response = await api.put(`/user/${id}`,{
 
-            cart: [
-                {dispatch}
-            ]
+            cart: dispatch[0]
         });
 
-        console.log(response.status);
-        
+        console.log(response.data);
+      
     }
 
     return (
@@ -117,15 +116,15 @@ export const Menu = () => {
                                 <S.PriceProduct>
                                     <span>R$</span>
                                     {product.price}</S.PriceProduct>
-                                    <div onClick={() => setDispatch({
+                                    <div onClick={() => setDispatch([{
                                         name: product.name,
                                         marca: product.marca,
                                         description: product.description,
                                         image: product.image[0].image_url,
                                         price: product.price
-                                    })}>
+                                    }]) } >
 
-                                <ButtonAdd/>
+                            <S.Button onClick={() => handlePost()}>Adicionar ao carrinho</S.Button>
                                     </div>
 
 
@@ -153,16 +152,15 @@ export const Menu = () => {
                                 <span >R$</span>
                                 {product.price}</S.PriceProduct>
 
-                            <div  onClick={() => setDispatch({
+                            <div  onClick={() => setDispatch([{
                                         name: product.name,
                                         marca: product.marca,
                                         description: product.description,
                                         image: product.image[0].image_url,
                                         price: product.price
-                                    })}>
-                            <span onClick={() => console.log("clicou")
-                            }/>
-                            <ButtonAdd />
+                                    }])}>
+                            
+                            <S.Button onClick={() => handlePost()}>Adicionar ao carrinho</S.Button>
                                 </div>
 
                         </S.Product>
@@ -188,15 +186,15 @@ export const Menu = () => {
                                     <span>R$</span>
                                     {product.price}</S.PriceProduct>
 
-                                    <div onClick={() => setDispatch({
+                                    <div onClick={() => setDispatch([{
                                         name: product.name,
                                         marca: product.marca,
                                         description: product.description,
                                         image: product.image[0].image_url,
                                         price: product.price
-                                    })}>
+                                    }])}>
 
-                                    <ButtonAdd />
+                                   <S.Button onClick={() => handlePost()}>Adicionar ao carrinho</S.Button>
                                         </div>
 
 
