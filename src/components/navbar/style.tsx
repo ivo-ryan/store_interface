@@ -27,9 +27,30 @@ export const Search = styled.div`
 `;
 
 export const LocContainer = styled.div`
-                position: relative;
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+                padding-left: 2rem ;
                 background-color: #232F3E;
                 height: 3.5rem;
+                color: #fff;
+
+                svg{
+                        border: .2rem solid #fff;
+                        border-radius: 50% ;
+                        font-size: 2rem;
+                }
+
+                span{
+                        color: #FCBA03;
+                        animation: user 2s infinite alternate-reverse;
+
+                        @keyframes user {
+                                to{
+                                     filter:drop-shadow(0 0 .1rem #FCBA03) ;
+                                }
+                        }
+                }
 `;
 
 
@@ -60,3 +81,4 @@ export const Cart = styled.div`
                 margin-right: .5rem;
             }
 `;
+

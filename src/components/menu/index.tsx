@@ -81,7 +81,6 @@ export const Menu = () => {
             
         if (dispatch[0].description.length !== 0) {
             user.push(dispatch[0])
-            console.log(user);
         }
     },[dispatch[0]])
 
@@ -102,7 +101,7 @@ export const Menu = () => {
                 cart: user
             });
     
-            console.log(response.data);
+            console.log(response.status);
 
         }
         fetchData()
@@ -111,7 +110,7 @@ export const Menu = () => {
 
     return (
         <>
-        <Navbar />
+        <Navbar id={idUser}/>
         <S.MainContainer>
 
             <S.SectionProduct>
@@ -120,7 +119,7 @@ export const Menu = () => {
                         return(
                             <S.Product key={index}>
                                 <S.ImageContainer>
-                                <Link to={`/product/${product._id}/fitness`}>
+                                <Link to={`/${idUser}/${product._id}/fitness`}>
 
                                 <img src={product.image[0].image_url} alt={product.marca} />
 
@@ -154,7 +153,7 @@ export const Menu = () => {
                         return(
                             <S.Product key={index}>
                             <S.ImageContainer>
-                            <Link to={`/product/${product._id}/tecnologia`}>
+                            <Link to={`/${idUser}/${product._id}/tecnologia`}>
 
                             <img src={product.image[0].image_url} alt={product.marca} />
 
@@ -189,7 +188,7 @@ export const Menu = () => {
                         return(
                             <S.Product key={index}>
                                 <S.ImageContainer>
-                                <Link to={`/product/${product._id}/moda`}>
+                                <Link to={`/${idUser}/${product._id}/moda`}>
 
                                 <img src={product.image[0].image_url} alt={product.marca} />
 

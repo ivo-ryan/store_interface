@@ -1,28 +1,32 @@
-import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { AiOutlineShoppingCart , AiOutlineUser} from 'react-icons/ai';
 import * as S from './style';
-import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+interface IdProps {
+    id: string | undefined
+}
 
-export const Navbar = () => {
 
-    const { idUser } = useParams();
+export const Navbar = ({ id }:IdProps) => {
 
-    const [ cart , setCart ] = useState([])
+
+    const [ cart , setCart ] = useState([]);
+    const [user, setUser] = useState<string>('')
     
     useEffect(() => {
         const fetchData = async () => {
-            const req = await axios.get(`https://store-api-gbye.onrender.com/user/${idUser}`)
+            const req = await axios.get(`https://store-api-gbye.onrender.com/user/${id}`)
 
             const res = req.data.cart
-            console.log(res);
-            setCart(res)
-            
+            const  data = req.data.user
+            setCart(res);
+            setUser(data)
+   
         }
 
         fetchData()
-    }, [])
+    }, [cart]);
 
     return (
         <S.Header>
@@ -50,8 +54,12 @@ export const Navbar = () => {
             </S.Nav>
 
             <S.LocContainer>
+                <AiOutlineUser/>
 
-              
+              <p>
+                
+                Olá, <span>{user}</span>
+              </p>
 
             </S.LocContainer>
         </S.Header>
