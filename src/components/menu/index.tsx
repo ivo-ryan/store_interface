@@ -7,7 +7,7 @@ import { Link, useParams } from "react-router-dom";
 
 export const Menu = () => {
 
-    const { id } = useParams();
+    const { idUser } = useParams();
 
     const [ fitness, setFitness ] = useState<MenuTypes[]>([]);
     const [ tecnolog, setTecnolog ] = useState<MenuTypes[]>([]);
@@ -15,23 +15,16 @@ export const Menu = () => {
 
     const [ dispatch, setDispatch ] = useState<DispatchTypes[]>([
         {
-        description: '',
-        image: '',
-        marca: '',
-        name: '',
-        price: ''
-    }
-]);
-
-    const [ user, setUser ] = useState([
-        {
             description: '',
             image: '',
             marca: '',
             name: '',
-            price: ''
-        }
-    ]);
+            price: '',
+            id: 0
+    }
+]);
+
+    const [ user, setUser ] = useState([{}]);
    
     useEffect(() => {
         const fecthData = async () => {
@@ -73,25 +66,47 @@ export const Menu = () => {
 
     }, []);
 
-    
-    const handlePost = async () => {  
-        
-        const res = await axios.get(`https://store-api-gbye.onrender.com/user/${id}`)
+    useEffect(() => {
+        const fetchData = async () => {
+             const res = await axios.get(`https://store-api-gbye.onrender.com/user/${idUser}`)
 
             const req = await res.data;
             setUser(req.cart);
-   
-        const api =  axios.create({
-            baseURL: "https://store-api-gbye.onrender.com"
-        });
+        }
+
+        fetchData()
+    })
+
+    useEffect(() => {
+            
+        if (dispatch[0].description.length !== 0) {
+            user.push(dispatch[0])
+            console.log(user);
+        }
+    },[dispatch[0]])
+
     
-        const response = await api.put(`/user/${id}`,{
+    const handlePost =  () => {  
 
-            cart: dispatch[0]
-        });
+         setTimeout( () => {
 
-        console.log(response.data);
-      
+            const fetchData = async () => {
+            
+            const api =  axios.create({
+
+                baseURL: "https://store-api-gbye.onrender.com"
+            });
+        
+            const response = await api.put(`/user/${idUser}`,{
+    
+                cart: user
+            });
+    
+            console.log(response.data);
+
+        }
+        fetchData()
+        }, 50)
     }
 
     return (
@@ -117,6 +132,7 @@ export const Menu = () => {
                                     <span>R$</span>
                                     {product.price}</S.PriceProduct>
                                     <div onClick={() => setDispatch([{
+                                        id: user.length + 1,
                                         name: product.name,
                                         marca: product.marca,
                                         description: product.description,
@@ -126,8 +142,6 @@ export const Menu = () => {
 
                             <S.Button onClick={() => handlePost()}>Adicionar ao carrinho</S.Button>
                                     </div>
-
-
                             </S.Product>
                         )
                     })
@@ -153,6 +167,7 @@ export const Menu = () => {
                                 {product.price}</S.PriceProduct>
 
                             <div  onClick={() => setDispatch([{
+                                id: user.length + 1,
                                         name: product.name,
                                         marca: product.marca,
                                         description: product.description,
@@ -187,6 +202,7 @@ export const Menu = () => {
                                     {product.price}</S.PriceProduct>
 
                                     <div onClick={() => setDispatch([{
+                                        id: user.length + 1,
                                         name: product.name,
                                         marca: product.marca,
                                         description: product.description,

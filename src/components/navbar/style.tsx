@@ -23,19 +23,40 @@ export const Search = styled.div`
             justify-content: center;
             align-items: center;
             color: black;
-
-            select{
-               text-align: center;
-                color: black;
-                option{
-                    color: black;
-
-                }
-            }
+            gap: 2rem;
 `;
 
 export const LocContainer = styled.div`
                 position: relative;
                 background-color: #232F3E;
                 height: 3.5rem;
+`;
+
+
+export const Cart = styled.div`
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 1rem;
+        cursor: pointer;
+        div{
+                position: relative;
+                svg{
+                font-size: 2.5rem;
+                color: orange;
+                margin-right: 1rem;
+                
+            }}
+
+            p{  
+                background-color: #fff;
+                position: absolute;
+                color: red;
+                font-size: 1.3rem;
+                font-weight: 800;
+                border-radius: 50%;
+                padding: 0 .5rem ;
+                top: .5rem;
+                margin-right: .5rem;
+            }
 `;

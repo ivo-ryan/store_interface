@@ -13,6 +13,7 @@ export interface MenuTypes{
 }
 
 export interface DispatchTypes{
+    id: number
     description: string,
     image: string,
     marca: string,
