@@ -2,6 +2,7 @@ import { AiOutlineShoppingCart , AiOutlineUser} from 'react-icons/ai';
 import * as S from './style';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 interface IdProps {
     id: string | undefined
@@ -36,6 +37,8 @@ export const Navbar = ({ id }:IdProps) => {
                     <S.Search>
 
                         <input type="text" />
+
+                        <Link to={`/cart/${id}`}>
                         <S.Cart>  
 
                         <p>{cart.length}</p>
@@ -48,6 +51,7 @@ export const Navbar = ({ id }:IdProps) => {
 
                         </S.Cart>
                        
+                        </Link>
 
                     </S.Search>
                 </li>

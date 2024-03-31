@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { MenuTypes } from "../../types/menuTypes";
 import * as S from './style';
-import { LocProps } from "../../types/detailsTypes";
+import { DispatchProps } from "../../types/detailsTypes";
 
 export const Details = () => {
 
@@ -13,15 +13,18 @@ export const Details = () => {
     const [ product , setProduct ] = useState<MenuTypes[]>([]);
 
     const [ paginationImg , setPaginationImg ] = useState<number>(1);
-
-    const [ cep , setCep ] = useState<string>('');
-    const [ infoLoc , setInfoLoc ] = useState<LocProps>({
-        bairro: '',
-        localidade: '',
-        logradouro: '',
-        uf: '',
-    })
+    const [ userCart, setUserCart ] = useState([{}]);
+    console.log(userCart);
     
+
+    const [ dispatch, setDispatch ] = useState<DispatchProps>( {
+            description: '',
+            image: '',
+            marca: '',
+            name: '',
+            price: '',
+            id: 0
+    });    
     
     useEffect(() => {
         const fetchData = async () => {
@@ -30,7 +33,14 @@ export const Details = () => {
             const res = await req.data;
 
             setProduct([res]);
-            
+            setDispatch({
+                description: res.description,
+                id: userCart.length + 1,
+                image: res.image[0].image_url,
+                marca: res.marca,
+                name: res.name,
+                price: res.price
+            })
         };
 
         fetchData();
@@ -39,27 +49,39 @@ export const Details = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const req = await axios.get(`https://viacep.com.br/ws/${Number(cep)}/json`);
+             const res = await axios.get(`https://store-api-gbye.onrender.com/user/${user}`)
 
-            const res = req.data
-            console.log(res);
-            setInfoLoc(res)
-            
+            const req = await res.data;
+            setUserCart(req.cart);
         }
 
-        fetchData();
+        fetchData()
+    },[]);
 
-    }, [cep.length === 8]);
+    const handlePost =  () => {  
 
+        userCart.push(dispatch)
 
-    const handleLoc = (event:any) => {
-        if(event.target.value.length === 8){
-            setCep(event.target.value)
-        }else{
-        return
-    }
+        setTimeout( () => {
 
-    }
+           const fetchData = async () => {
+           
+           const api =  axios.create({
+
+               baseURL: "https://store-api-gbye.onrender.com"
+           });
+       
+           const response = await api.put(`/user/${user}`,{
+   
+               cart: userCart
+           });
+   
+           console.log(response.status);
+
+       }
+       fetchData()
+       }, 10)
+   }
 
     return (
         <>
@@ -110,54 +132,33 @@ export const Details = () => {
 
                         <S.ContainerPrice>
                             <p>
-                                R$ <span>{info.price}</span>
+                                <span>R$</span>{info.price}
                             </p>
                         </S.ContainerPrice>
+
+                        <S.SecurityContainer>
+                            <ul>
+                                <li><img src="https://m.media-amazon.com/images/G/32/A2I-Convert/mobile/IconFarm/icon-payments-and-security._CB643514857_.png" alt="Icon Farm Peyments" />
+                                <p>Pagamento seguro</p></li>
+                                <li><img src="https://m.media-amazon.com/images/G/32/A2I-Convert/mobile/IconFarm/icon-amazon-delivered._CB406595335_.png" alt="Icon farm delive" />
+                                <p>Enviado em até 24 horas</p></li>
+                                <li><img src="https://m.media-amazon.com/images/G/32/A2I-Convert/mobile/IconFarm/icon-returns._CB406595335_.png" alt="Icon farm returns" />
+                                <p>Política de devolução</p>
+                                </li>
+                            </ul>
+                        </S.SecurityContainer>
                     </S.InfoContainer>
                             )
                         })
                     }
 
+
                     </S.ContainerProduct>
-
-                    <S.DispatchContainer>
-
-                        <div>
-                            <label htmlFor="loc">Calcular Frete </label>
-                            <input type="text" id="loc" onChange={handleLoc}/>
-
-                            <div>
-                                {
-                                    infoLoc.bairro ?  (<S.InfoL>
-                                    <h3>Bairro :</h3> <p>{infoLoc.bairro}</p>
-                                </S.InfoL> ): null
-                                }
-
-{
-                                    infoLoc.localidade ?  (<S.InfoL>
-                                    <h3>Cidade :</h3> <p>{infoLoc.localidade}
-                                    </p>
-                                </S.InfoL > ): null
-                                }
-                                {
-                                    infoLoc.logradouro ?  (<S.InfoL>
-                                    <h3>Logradouro :</h3> <p>{infoLoc.logradouro}</p>
-                                </S.InfoL> ): null
-                                }
-                                {
-                                    infoLoc.uf ?  (<S.InfoL>
-                                    <h3>Estato :</h3> <p>{infoLoc.uf}</p>
-                                </S.InfoL> ): null
-                                }
-                            </div>
-                        </div>
-
-                        <S.ButtonContainer>
+                        <S.ButtonContainer onClick={handlePost}>
                             <button>
                                 Adicionar ao carrinho
                             </button>
                         </S.ButtonContainer>
-                    </S.DispatchContainer>
 
                 
             </S.MainContainer>

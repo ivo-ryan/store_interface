@@ -1,5 +1,5 @@
-export interface DispatchProps {
-    id: number
+export interface CartProductProps {
+    quantity: string,
     description: string,
     image: string,
     marca: string,

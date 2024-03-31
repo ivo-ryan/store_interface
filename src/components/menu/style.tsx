@@ -14,7 +14,7 @@ export const SectionProduct = styled.section`
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 1rem;
             
             p{
                 color: black;
@@ -23,11 +23,11 @@ export const SectionProduct = styled.section`
 
 
 export const Product = styled.div`
-        max-width: 240px;
+        width: 240px;
         height: 432.906px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         gap: 10px;
         margin-top: 3rem;
@@ -38,15 +38,15 @@ export const Product = styled.div`
 export const ImageContainer = styled.div`
             display: flex;
             justify-content: center;
-            align-items: center;
-            background-color: #F8F8F8;
-            max-width: 100%;
-            max-height: 50%;
-
+            align-items: center; 
+            width: 240px;
+            height: 234px;
+            background-color: #F7F7F7;
             
-        a{
-            width: 100%;
+        a{  
+            max-width: 100%;
             height: 100%;
+            padding: 1rem;
 
             img{
             max-height: 100%;

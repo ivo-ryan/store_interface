@@ -75,7 +75,7 @@ export const Menu = () => {
         }
 
         fetchData()
-    })
+    },[])
 
     useEffect(() => {
             
