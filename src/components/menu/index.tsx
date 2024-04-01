@@ -20,7 +20,8 @@ export const Menu = () => {
             marca: '',
             name: '',
             price: '',
-            id: 0
+            id: '',
+            quantity: 0
     }
 ]);
 
@@ -71,6 +72,7 @@ export const Menu = () => {
              const res = await axios.get(`https://store-api-gbye.onrender.com/user/${idUser}`)
 
             const req = await res.data;
+            
             setUser(req.cart);
         }
 
@@ -78,14 +80,15 @@ export const Menu = () => {
     },[])
 
     useEffect(() => {
-            
-        if (dispatch[0].description.length !== 0) {
-            user.push(dispatch[0])
-        }
+
+        user.push(dispatch[0])
+        
+
     },[dispatch[0]])
 
     
     const handlePost =  () => {  
+
 
          setTimeout( () => {
 
@@ -131,12 +134,13 @@ export const Menu = () => {
                                     <span>R$</span>
                                     {product.price}</S.PriceProduct>
                                     <div onClick={() => setDispatch([{
-                                        id: user.length + 1,
+                                        id: product._id,
                                         name: product.name,
                                         marca: product.marca,
                                         description: product.description,
                                         image: product.image[0].image_url,
-                                        price: product.price
+                                        price: product.price,
+                                        quantity: 1
                                     }]) } >
 
                             <S.Button onClick={() => handlePost()}>Adicionar ao carrinho</S.Button>
@@ -166,12 +170,13 @@ export const Menu = () => {
                                 {product.price}</S.PriceProduct>
 
                             <div  onClick={() => setDispatch([{
-                                id: user.length + 1,
+                                        id: product._id,
                                         name: product.name,
                                         marca: product.marca,
                                         description: product.description,
                                         image: product.image[0].image_url,
-                                        price: product.price
+                                        price: product.price,
+                                        quantity: 1
                                     }])}>
                             
                             <S.Button onClick={() => handlePost()}>Adicionar ao carrinho</S.Button>
@@ -201,12 +206,13 @@ export const Menu = () => {
                                     {product.price}</S.PriceProduct>
 
                                     <div onClick={() => setDispatch([{
-                                        id: user.length + 1,
+                                        id: product._id,
                                         name: product.name,
                                         marca: product.marca,
                                         description: product.description,
                                         image: product.image[0].image_url,
-                                        price: product.price
+                                        price: product.price,
+                                        quantity: 1
                                     }])}>
 
                                    <S.Button onClick={() => handlePost()}>Adicionar ao carrinho</S.Button>

@@ -17,8 +17,6 @@ export const Cart = () => {
             price: '',
             quantity: ''
     }]);
-
-    console.log(userCart);
     
 
     useEffect(() => {
@@ -27,6 +25,9 @@ export const Cart = () => {
 
             const req = await res.data;
             setUserCart(req.cart);
+
+            
+            
                 
         }
 
