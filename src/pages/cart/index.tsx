@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import * as S from './style'
 import { CartProductProps } from "../../types/cart";
 
+
 export const Cart = () => {
 
     const { id } = useParams();
@@ -15,20 +16,35 @@ export const Cart = () => {
             marca: '',
             name: '',
             price: '',
-            quantity: ''
+            id: ''
     }]);
-    
+
+    // const newArray = userCart.filter((item, index) => {
+    //     return index === userCart.findIndex((obj) => {
+    //         return JSON.stringify(item) === JSON.stringify(obj)
+    //     })
+    // })
+    const newArray = userCart.filter((item, index) => {
+        return index === userCart.findIndex((obj) => {
+            return (item.id === obj.id )
+        })
+    })
+
+       const migratoryProducts = (arr:CartProductProps[]) => {
+         arr.forEach((item) => {
+                item
+                
+            })
+         
+    }
 
     useEffect(() => {
         const fetchData = async () => {
              const res = await axios.get(`https://store-api-gbye.onrender.com/user/${id}`);
 
             const req = await res.data;
-            setUserCart(req.cart);
-
-            
-            
-                
+            migratoryProducts(req.cart);
+            setUserCart(req.cart);     
         }
 
         fetchData()
@@ -38,19 +54,46 @@ export const Cart = () => {
         <>
             <Navbar id={id}/>
             <S.MainContainer>
-                <section>
+                <S.SectionContainer>
                     {
-                        userCart.map(( item, index) => {
+                        newArray.map(( item, index) => {
                             return (
-                                <div key={index}>
+                                <S.ProductContainer key={index}>
+
+                                    <S.ContainerInfo>
+
                                     <S.ImageProduct>
                                         <img src={item.image} alt={item.name} />
                                     </S.ImageProduct>
-                                </div>
+
+                                    <S.MProduct>
+                                        <p>
+
+                                        {item.description}
+                                        </p>
+
+                                        <p>{item.marca}</p>
+
+                                    </S.MProduct>
+
+                                    </S.ContainerInfo>
+                                    <S.PriceContainer>
+                                        <span>R$</span>
+                                        <p>
+                                            {item.price}
+                                        </p>
+                                    </S.PriceContainer>
+                                </S.ProductContainer>
                             )
                         })
                     }
-                </section>
+
+                    <S.ContainerButton>
+                        <button>
+                            Finalizar compras
+                        </button>
+                    </S.ContainerButton>
+                </S.SectionContainer>
             </S.MainContainer>
         </>
     )

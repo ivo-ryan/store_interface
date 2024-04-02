@@ -20,12 +20,14 @@ export const Menu = () => {
             marca: '',
             name: '',
             price: '',
-            id: '',
-            quantity: 0
+            id: ''
     }
 ]);
 
     const [ user, setUser ] = useState([{}]);
+
+  
+    
    
     useEffect(() => {
         const fecthData = async () => {
@@ -39,7 +41,7 @@ export const Menu = () => {
 
         fecthData()
 
-    }, [])
+    }, []);
 
     useEffect(() => {
         const fecthData = async () => {
@@ -67,6 +69,7 @@ export const Menu = () => {
 
     }, []);
 
+
     useEffect(() => {
         const fetchData = async () => {
              const res = await axios.get(`https://store-api-gbye.onrender.com/user/${idUser}`)
@@ -83,10 +86,8 @@ export const Menu = () => {
 
         user.push(dispatch[0])
         
+    },[dispatch[0]]);
 
-    },[dispatch[0]])
-
-    
     const handlePost =  () => {  
 
 
@@ -140,7 +141,6 @@ export const Menu = () => {
                                         description: product.description,
                                         image: product.image[0].image_url,
                                         price: product.price,
-                                        quantity: 1
                                     }]) } >
 
                             <S.Button onClick={() => handlePost()}>Adicionar ao carrinho</S.Button>
@@ -176,7 +176,6 @@ export const Menu = () => {
                                         description: product.description,
                                         image: product.image[0].image_url,
                                         price: product.price,
-                                        quantity: 1
                                     }])}>
                             
                             <S.Button onClick={() => handlePost()}>Adicionar ao carrinho</S.Button>
@@ -212,7 +211,6 @@ export const Menu = () => {
                                         description: product.description,
                                         image: product.image[0].image_url,
                                         price: product.price,
-                                        quantity: 1
                                     }])}>
 
                                    <S.Button onClick={() => handlePost()}>Adicionar ao carrinho</S.Button>

@@ -1,5 +1,5 @@
 export interface CartProductProps {
-    quantity: string,
+    id: string,
     description: string,
     image: string,
     marca: string,

@@ -18,6 +18,5 @@ export interface DispatchTypes{
     image: string,
     marca: string,
     name: string,
-    price: string,
-    quantity: number
+    price: string
 }
