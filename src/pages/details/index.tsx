@@ -23,7 +23,8 @@ export const Details = () => {
             marca: '',
             name: '',
             price: '',
-            id: 0
+            id: '',
+            quantity: 0
     });    
     
     useEffect(() => {
@@ -31,15 +32,18 @@ export const Details = () => {
             const req = await axios.get(`https://store-api-gbye.onrender.com/${name}/${id}`);
 
             const res = await req.data;
+            console.log(res);
+            
 
             setProduct([res]);
             setDispatch({
                 description: res.description,
-                id: userCart.length + 1,
+                id: res._id,
                 image: res.image[0].image_url,
                 marca: res.marca,
                 name: res.name,
-                price: res.price
+                price: res.price,
+                quantity: 1
             })
         };
 

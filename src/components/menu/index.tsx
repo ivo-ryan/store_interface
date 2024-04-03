@@ -20,13 +20,25 @@ export const Menu = () => {
             marca: '',
             name: '',
             price: '',
-            id: ''
+            id: '',
+            quantity: 0
     }
 ]);
 
-    const [ user, setUser ] = useState([{}]);
+    const [ user, setUser ] = useState<DispatchTypes[]>([
+        {
+            description: '',
+            image: '',
+            marca: '',
+            name: '',
+            price: '',
+            id: '',
+            quantity: 0
+    }
+    ]);
 
   
+    const [ quantity, setQuantity ] = useState<number>(0);
     
    
     useEffect(() => {
@@ -75,6 +87,7 @@ export const Menu = () => {
              const res = await axios.get(`https://store-api-gbye.onrender.com/user/${idUser}`)
 
             const req = await res.data;
+            console.log(req);
             
             setUser(req.cart);
         }
@@ -84,7 +97,46 @@ export const Menu = () => {
 
     useEffect(() => {
 
-        user.push(dispatch[0])
+        const newDispatch = {
+            description: dispatch[0].description,
+            image: dispatch[0].image,
+            marca: dispatch[0].marca,
+            name: dispatch[0].name,
+            price: dispatch[0].price,
+            id: dispatch[0].id,
+            quantity: dispatch[0].quantity + quantity
+        };
+
+        const productCart = user.filter((item, index) => {
+            if (item.id === dispatch[0].id) {
+                console.log(item.quantity);
+                
+                setQuantity(item.quantity);
+                
+
+                return setTimeout(() => {
+                    user.splice(index, 1);
+                    user.push(newDispatch)
+                }, 10);
+              
+            }else{
+                user.push(dispatch[0]);
+            }
+
+            if (!user.length) {
+               return  console.log("chegou aqui");
+               
+            }
+        });
+
+        
+        console.log(newDispatch);
+        
+        console.log(user);
+        console.log(productCart);
+        
+        
+        
         
     },[dispatch[0]]);
 
@@ -109,7 +161,7 @@ export const Menu = () => {
 
         }
         fetchData()
-        }, 50)
+        }, 10);
     }
 
     return (
@@ -141,6 +193,7 @@ export const Menu = () => {
                                         description: product.description,
                                         image: product.image[0].image_url,
                                         price: product.price,
+                                        quantity: 1
                                     }]) } >
 
                             <S.Button onClick={() => handlePost()}>Adicionar ao carrinho</S.Button>
@@ -176,6 +229,7 @@ export const Menu = () => {
                                         description: product.description,
                                         image: product.image[0].image_url,
                                         price: product.price,
+                                        quantity: 1
                                     }])}>
                             
                             <S.Button onClick={() => handlePost()}>Adicionar ao carrinho</S.Button>
@@ -211,6 +265,7 @@ export const Menu = () => {
                                         description: product.description,
                                         image: product.image[0].image_url,
                                         price: product.price,
+                                        quantity: 1
                                     }])}>
 
                                    <S.Button onClick={() => handlePost()}>Adicionar ao carrinho</S.Button>

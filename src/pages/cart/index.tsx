@@ -19,31 +19,19 @@ export const Cart = () => {
             id: ''
     }]);
 
-    // const newArray = userCart.filter((item, index) => {
-    //     return index === userCart.findIndex((obj) => {
-    //         return JSON.stringify(item) === JSON.stringify(obj)
-    //     })
-    // })
     const newArray = userCart.filter((item, index) => {
         return index === userCart.findIndex((obj) => {
             return (item.id === obj.id )
         })
-    })
+    });
 
-       const migratoryProducts = (arr:CartProductProps[]) => {
-         arr.forEach((item) => {
-                item
-                
-            })
-         
-    }
 
     useEffect(() => {
         const fetchData = async () => {
              const res = await axios.get(`https://store-api-gbye.onrender.com/user/${id}`);
 
             const req = await res.data;
-            migratoryProducts(req.cart);
+
             setUserCart(req.cart);     
         }
 
