@@ -20,7 +20,8 @@ export const Menu = () => {
             marca: '',
             name: '',
             price: '',
-            id: ''
+            id: '',
+            quantity: 0
     }
 ]);
 
@@ -31,10 +32,13 @@ export const Menu = () => {
             marca: '',
             name: '',
             price: '',
-            id: ''
+            id: '',
+            quantity: 0
     }
     ]);
 
+    const [ index, setIndex ] = useState<number>(0)
+   console.log(index);
    
     useEffect(() => {
         const fecthData = async () => {
@@ -87,7 +91,10 @@ export const Menu = () => {
         }
 
         fetchData()
-    },[])
+    },[]);
+    
+    console.log(user);
+    
 
     useEffect(() => {
 
@@ -96,13 +103,44 @@ export const Menu = () => {
             
             const ids = user.map(i => i?.id)
 
-            const filterId = ids.filter((item) => item === dispatch[0].id  )
+            const filterId = ids.filter((item) => item === dispatch[0].id 
+             );
 
+             const newProduct:DispatchTypes[] = user.filter((item, i) => {
+                if (item.id === filterId[0]) {
+                    setIndex(i)
+                    return item.id === filterId[0]
+                    
+                }
+               }) 
+
+            console.log(newProduct);
             if (filterId.length > 0) {
-                return console.log("item já foi adicionado");
+
+                return user.filter((item) => {
+                   
+                    if(item.id === filterId[0]){
+                    setTimeout(() => {
+                        user.splice(index, 1)
+                        user.splice(index, 1)
+                        return user.push({
+                         description: newProduct[0].description,
+                         image: newProduct[0].image,
+                         marca: newProduct[0].marca,
+                         name: newProduct[0].name,
+                         price: newProduct[0].price,
+                         id: newProduct[0].id,
+                         quantity: newProduct[0].quantity + 1
+                        })
+                    }, 10);
+            }
+
+                })
                 
             }else{
-                user.push(dispatch[0])
+                
+                console.log("Chegou aqui!")
+               return user.push(dispatch[0])
             }
             
     }
@@ -165,7 +203,8 @@ export const Menu = () => {
                                         marca: product.marca,
                                         description: product.description,
                                         image: product.image[0].image_url,
-                                        price: product.price
+                                        price: product.price,
+                                        quantity: 1
                                     }])
                                     handlePost()
                                     } } >
@@ -202,7 +241,8 @@ export const Menu = () => {
                                         marca: product.marca,
                                         description: product.description,
                                         image: product.image[0].image_url,
-                                        price: product.price
+                                        price: product.price,
+                                        quantity: 1
                                     }])
                                     handlePost()}}>
                             
@@ -238,7 +278,8 @@ export const Menu = () => {
                                         marca: product.marca,
                                         description: product.description,
                                         image: product.image[0].image_url,
-                                        price: product.price
+                                        price: product.price,
+                                        quantity: 1
                                     }])
                                     handlePost()}}>
 

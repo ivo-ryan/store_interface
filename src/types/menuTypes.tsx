@@ -19,4 +19,5 @@ export interface DispatchTypes{
     marca: string,
     name: string,
     price: string,
+    quantity: number
 }
