@@ -36,9 +36,6 @@ export const Menu = () => {
             quantity: 0
     }
     ]);
-
-    const [ index, setIndex ] = useState<number>(0)
-   console.log(index);
    
     useEffect(() => {
         const fecthData = async () => {
@@ -93,8 +90,6 @@ export const Menu = () => {
         fetchData()
     },[]);
     
-    console.log(user);
-    
 
     useEffect(() => {
 
@@ -106,36 +101,9 @@ export const Menu = () => {
             const filterId = ids.filter((item) => item === dispatch[0].id 
              );
 
-             const newProduct:DispatchTypes[] = user.filter((item, i) => {
-                if (item.id === filterId[0]) {
-                    setIndex(i)
-                    return item.id === filterId[0]
-                    
-                }
-               }) 
-
-            console.log(newProduct);
             if (filterId.length > 0) {
 
-                return user.filter((item) => {
-                   
-                    if(item.id === filterId[0]){
-                    setTimeout(() => {
-                        user.splice(index, 1)
-                        user.splice(index, 1)
-                        return user.push({
-                         description: newProduct[0].description,
-                         image: newProduct[0].image,
-                         marca: newProduct[0].marca,
-                         name: newProduct[0].name,
-                         price: newProduct[0].price,
-                         id: newProduct[0].id,
-                         quantity: newProduct[0].quantity + 1
-                        })
-                    }, 10);
-            }
-
-                })
+                return console.log("item adicionado");
                 
             }else{
                 
@@ -169,7 +137,6 @@ export const Menu = () => {
             });
     
             console.log(response.status);
-
         }
         fetchData()
         }, 10);
@@ -177,7 +144,7 @@ export const Menu = () => {
 
     return (
         <>
-        <Navbar id={idUser}/>
+        <Navbar id={idUser} />
         <S.MainContainer>
 
             <S.SectionProduct>
@@ -215,6 +182,7 @@ export const Menu = () => {
                         )
                     })
                 }
+
             </S.SectionProduct>
 
             <S.SectionProduct>

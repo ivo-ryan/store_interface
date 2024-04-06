@@ -1,8 +1,8 @@
-import { useParams } from "react-router"
-import { Navbar } from "../../components/navbar/navbar"
+import { useParams } from "react-router";
+import { Navbar } from "../../components/navbar/navbar";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import * as S from './style'
+import * as S from './style';
 import { CartProductProps } from "../../types/cart";
 
 
@@ -16,7 +16,8 @@ export const Cart = () => {
             marca: '',
             name: '',
             price: '',
-            id: ''
+            id: '',
+            quantity: 0
     }]);
 
     const newArray = userCart.filter((item, index) => {
@@ -25,6 +26,10 @@ export const Cart = () => {
         })
     });
 
+    const quantidade =userCart.map((item) => item.quantity)
+
+    console.log(quantidade.length);
+    
 
     useEffect(() => {
         const fetchData = async () => {
@@ -76,9 +81,18 @@ export const Cart = () => {
                         })
                     }
 
+                    <div>
+                        <h2>Total</h2>
+                        <div>
+                            <p>{quantidade.length} produtos </p>
+                        </div>
+
+                        
+                    </div>
+
                     <S.ContainerButton>
                         <button>
-                            Finalizar compras
+                            Finalizar compra
                         </button>
                     </S.ContainerButton>
                 </S.SectionContainer>

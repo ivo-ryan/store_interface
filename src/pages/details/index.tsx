@@ -13,9 +13,17 @@ export const Details = () => {
     const [ product , setProduct ] = useState<MenuTypes[]>([]);
 
     const [ paginationImg , setPaginationImg ] = useState<number>(1);
-    const [ userCart, setUserCart ] = useState([{}]);
-    console.log(userCart);
-    
+    const [ userCart, setUserCart ] = useState([
+        {
+            description: '',
+            image: '',
+            marca: '',
+            name: '',
+            price: '',
+            id: '',
+            quantity: 0
+    }
+    ]);
 
     const [ dispatch, setDispatch ] = useState<DispatchProps>( {
             description: '',
@@ -32,9 +40,7 @@ export const Details = () => {
             const req = await axios.get(`https://store-api-gbye.onrender.com/${name}/${id}`);
 
             const res = await req.data;
-            console.log(res);
             
-
             setProduct([res]);
             setDispatch({
                 description: res.description,
@@ -64,7 +70,27 @@ export const Details = () => {
 
     const handlePost =  () => {  
 
-        userCart.push(dispatch)
+        const data = () => {
+            
+            
+            const ids = userCart.map(i => i?.id)
+
+            const filterId = ids.filter((item) => item === dispatch.id 
+             );
+
+            if (filterId.length > 0) {
+
+                return console.log("item adicionado");
+                
+            }else{
+                
+                console.log("Chegou aqui!")
+               return userCart.push(dispatch)
+            }
+            
+    }
+
+    data()
 
         setTimeout( () => {
 
