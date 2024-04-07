@@ -17,7 +17,6 @@ export const Cart = () => {
             name: '',
             price: '',
             id: '',
-            quantity: 0
     }]);
 
     const newArray = userCart.filter((item, index) => {
@@ -25,10 +24,6 @@ export const Cart = () => {
             return (item.id === obj.id )
         })
     });
-
-    const quantidade =userCart.map((item) => item.quantity)
-
-    console.log(quantidade.length);
     
 
     useEffect(() => {
@@ -71,7 +66,7 @@ export const Cart = () => {
 
                                     </S.ContainerInfo>
                                     <S.PriceContainer>
-                                        <span>R$</span>
+                                        <span>R$ </span>
                                         <p>
                                             {item.price}
                                         </p>
@@ -84,7 +79,7 @@ export const Cart = () => {
                     <div>
                         <h2>Total</h2>
                         <div>
-                            <p>{quantidade.length} produtos </p>
+                            <p>{userCart.length} produtos </p>
                         </div>
 
                         

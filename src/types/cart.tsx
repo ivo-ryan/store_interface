@@ -5,5 +5,4 @@ export interface CartProductProps {
     marca: string,
     name: string,
     price: string,
-    quantity: number
 }

@@ -59,21 +59,21 @@ export const Home = () => {
                     <S.ContainerH2>
 
                     <h2>
-                        Os maiores sucessos do mundo dos animes.
+                        Os produtos de mais sucesso do mercado.
                     </h2>
                      
                     </S.ContainerH2>
                     <S.ContainerText>
 
                      <p>
-                        Assista seus animes quando quiser
+                        Comece a comprar quando quiser
                      </p>
                     </S.ContainerText>
                 </S.Apresentação>
 
                 <S.ContainerValidate>
                     <p>
-                        Quer assistir? Informe seu email cadastrado.
+                        Quer dar uma olhada? Informe seu email cadastrado.
                     </p>
 
 

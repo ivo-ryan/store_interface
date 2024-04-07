@@ -20,8 +20,7 @@ export const Menu = () => {
             marca: '',
             name: '',
             price: '',
-            id: '',
-            quantity: 0
+            id: ''
     }
 ]);
 
@@ -32,8 +31,7 @@ export const Menu = () => {
             marca: '',
             name: '',
             price: '',
-            id: '',
-            quantity: 0
+            id: ''
     }
     ]);
    
@@ -170,8 +168,7 @@ export const Menu = () => {
                                         marca: product.marca,
                                         description: product.description,
                                         image: product.image[0].image_url,
-                                        price: product.price,
-                                        quantity: 1
+                                        price: product.price
                                     }])
                                     handlePost()
                                     } } >
@@ -209,8 +206,7 @@ export const Menu = () => {
                                         marca: product.marca,
                                         description: product.description,
                                         image: product.image[0].image_url,
-                                        price: product.price,
-                                        quantity: 1
+                                        price: product.price
                                     }])
                                     handlePost()}}>
                             
@@ -246,8 +242,7 @@ export const Menu = () => {
                                         marca: product.marca,
                                         description: product.description,
                                         image: product.image[0].image_url,
-                                        price: product.price,
-                                        quantity: 1
+                                        price: product.price
                                     }])
                                     handlePost()}}>
 

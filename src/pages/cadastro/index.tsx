@@ -1,8 +1,8 @@
 import { FormEvent, useState } from 'react';
-import { Navbar } from '../../components/navbar/navbar';
 import * as S from './style';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import {  BiLeftArrowAlt, BiXCircle } from 'react-icons/bi';
 
 export const Cadastro = () => {
 
@@ -119,8 +119,17 @@ export const Cadastro = () => {
     return (
 
         <>
-    <Navbar/>
+<S.MainContainer>
 
+    <Link to={"/"}>
+    <S.ArrowContainer>
+        <div>
+        <BiLeftArrowAlt/> 
+        </div>
+        <p>Voltar</p>
+    </S.ArrowContainer>
+
+    </Link>
 <S.FormContainer >
 
 <S.Container>
@@ -147,7 +156,9 @@ export const Cadastro = () => {
 
     </S.InputContainerUser>
 
-    <S.ValidUser display={displayUser}><p>O usuário deve ter entre 4 e 10 caracteres!</p> </S.ValidUser>
+    <S.ValidUser display={displayUser}>
+        <BiXCircle/>
+        <p>O usuário deve ter entre 4 e 10 caracteres!</p> </S.ValidUser>
 
     </S.BoxInput>
 
@@ -167,7 +178,10 @@ export const Cadastro = () => {
 
     </S.InputContainer>
 
-    <S.Valid display={display}><p>Informe um email válido!</p> </S.Valid>
+    <S.Valid display={display}>
+    <BiXCircle/>
+    <p>Informe um email válido!</p> 
+    </S.Valid>
 
     </S.BoxInput>
 
@@ -187,7 +201,7 @@ export const Cadastro = () => {
     </S.InputContainerPass>
 
         <S.ValidPass display={displayPass}>
-        {/* <BiXCircle/> */}
+        <BiXCircle/>
             <p>A senha deve ter entre 4 e 15 caracteres!</p>
         </S.ValidPass>
 
@@ -214,6 +228,7 @@ export const Cadastro = () => {
 
 </S.Container>
 </S.FormContainer>
+        </S.MainContainer>   
         </>
 
     )

@@ -40,6 +40,7 @@ export const PriceContainer = styled.div`
             font-size: 2rem;
             font-weight: 600;
             display: flex;
+            gap: .2rem;
 
         span{
             height: 100%;

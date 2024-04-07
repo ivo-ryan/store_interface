@@ -20,8 +20,7 @@ export const Details = () => {
             marca: '',
             name: '',
             price: '',
-            id: '',
-            quantity: 0
+            id: ''
     }
     ]);
 
@@ -31,8 +30,7 @@ export const Details = () => {
             marca: '',
             name: '',
             price: '',
-            id: '',
-            quantity: 0
+            id: ''
     });    
     
     useEffect(() => {
@@ -48,8 +46,7 @@ export const Details = () => {
                 image: res.image[0].image_url,
                 marca: res.marca,
                 name: res.name,
-                price: res.price,
-                quantity: 1
+                price: res.price
             })
         };
 

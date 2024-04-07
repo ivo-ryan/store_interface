@@ -1,5 +1,50 @@
 import styled from "styled-components";
+import Back from '../../assets/commerces.webp'
 
+
+export const MainContainer = styled.main`
+        background-image: url(${Back});
+        background-size: cover ;
+        background-repeat: no-repeat ;
+        background-attachment: fixed ;
+        min-height: 100vh;
+        
+`;
+
+export const ArrowContainer = styled.div`
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        padding: 2rem  0 0 2rem;
+        cursor: pointer;
+        color:rgb(229, 9, 20) ;
+
+        div{
+            display: flex;
+            align-items: center;
+            border: .3rem solid rgb(229, 9, 20);
+            border-radius: 50%;
+            filter: drop-shadow( 0 0 .1rem #C11119);
+        }
+        svg{
+            font-size: 3rem;
+            animation: back 1s ease infinite alternate;
+            filter: drop-shadow( 0 0 .5rem #C11119 );
+        }
+
+        @keyframes back {
+            to{
+                transform: translateX(.6rem);
+                filter: drop-shadow( 0 0 0 #C11119 );
+            }
+        }
+
+        p{  
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+`;
 
 export const FormContainer = styled.div`
         display: flex;
@@ -8,13 +53,8 @@ export const FormContainer = styled.div`
         width: 100%;
         height: 100%;       
         border-radius: 10px;
-        margin-top: 10%;
         transition: all .5s ease;
-        
-        @media (max-width: 768px) {
-            margin-top: 15%;
-        }
-        
+
 `;
 
 export const Container = styled.div`
@@ -28,7 +68,7 @@ export const Container = styled.div`
             width: 450px;
             padding: 48px 68px ;
             margin-bottom: 2rem;
-            backdrop-filter: blur(14px);
+            backdrop-filter: blur(10px);
 
             header{
                 display: flex;
@@ -169,12 +209,16 @@ export const Valid = styled.div<{display:string}>`
             p{
                 color: rgb(229, 9, 20);
             }
+
+            svg{
+                font-size: 2rem;
+            }
 `;
 
 export const ValidUser = styled.div<{display:string}>`
              display: ${ props => props.display };
             justify-content: flex-start;
-            align-items: center;
+            align-items: flex-start;
             width: 100%;
             gap: 5px;
             color: rgb(229, 9, 20);
@@ -184,13 +228,17 @@ export const ValidUser = styled.div<{display:string}>`
             p{
                 color: rgb(229, 9, 20);
             }
+
+            svg{
+                font-size: 2rem;
+            }
 `;
 
 
 export const ValidPass = styled.div<{display: string}>`
             display: ${ props => props.display };
             justify-content: flex-start;
-            align-items: center;
+            align-items: flex-start;
             width: 100%;
             gap: 5px;
             color: rgb(229, 9, 20);
@@ -199,5 +247,9 @@ export const ValidPass = styled.div<{display: string}>`
 
             p{
                 color: rgb(229, 9, 20);
+            }
+
+            svg{
+                font-size: 2rem;
             }
 `;
