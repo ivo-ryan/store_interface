@@ -38,6 +38,17 @@ export const Cart = () => {
         fetchData()
     },[]);
 
+    const price = userCart.map((item) => parseFloat(item.price.replace(",", ".")));
+
+    const soma = price.reduce((acc, value) => acc + value
+    );
+
+   const somaString = String(soma);
+
+   console.log(somaString.replace(".", ","));
+   
+    
+
     return (
         <>
             <Navbar id={id}/>
