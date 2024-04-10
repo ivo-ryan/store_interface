@@ -38,6 +38,15 @@ export const ProductContainer = styled.div`
 
 export const ContainerDeleteAndPrice = styled.div`
             display: flex;
+            gap: 2rem;
+`;
+
+export const ContainerDelete = styled.div`
+        cursor: pointer;
+        svg{
+            font-size: 1.8rem;
+            color: rgb(229, 9, 20) ;
+        }
 `;
 
 export const PriceContainer = styled.div`

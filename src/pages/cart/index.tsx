@@ -19,16 +19,7 @@ export const Cart = () => {
             price: '',
             id: '',
     }]);
-
-    const [ indexProduct, setIndexProduct ] = useState<number>(0)
-
-    const newArray = userCart.filter((item, index) => {
-        return index === userCart.findIndex((obj) => {
-            return (item.id === obj.id )
-        })
-    });
     
-
     useEffect(() => {
         const fetchData = async () => {
              const res = await axios.get(`https://store-api-gbye.onrender.com/user/${id}`);
@@ -39,7 +30,7 @@ export const Cart = () => {
         }
 
         fetchData()
-    },[]);
+    },[userCart]);
 
     const price = userCart.map((item) =>    parseFloat(item.price.replace(".", "" )));
 
@@ -48,14 +39,29 @@ export const Cart = () => {
 
    const somaString = String(soma);
 
-   const handleClickDelete = (id:string) => {
-        const productFilter = userCart.filter((item, index) => {
-           if( item.id === id){
-        return (index)}});
-        
-        console.log(productFilter)
+   const handleClickDelete = (idProduct:string) => {
+        const productFilter = userCart.filter((item) => item.id !== idProduct);
+
+    console.log(productFilter);
     
-        // userCart.splice(indexProduct, 1)
+        setTimeout( () => {
+
+            const fetchData = async () => {;
+            
+            const api =  axios.create({
+
+                baseURL: "https://store-api-gbye.onrender.com"
+            });
+        
+            const response = await api.put(`/user/${id}`,{
+    
+                cart: productFilter
+            });
+    
+            console.log(response.status);
+        }
+        fetchData()
+        }, 10);
        
    }
    
@@ -67,7 +73,7 @@ export const Cart = () => {
             <S.MainContainer>
                 <S.SectionContainer>
                     {
-                        newArray.map(( item, index) => {
+                        userCart.map(( item, index) => {
                             return (
                                 <S.ProductContainer key={index}>
 
@@ -96,9 +102,9 @@ export const Cart = () => {
                                             {item.price}
                                         </p>
                                     </S.PriceContainer>
-                                    <div onClick={() => handleClickDelete(item.id)}>
+                                    <S.ContainerDelete onClick={() => handleClickDelete(item.id)}>
                                     <BiXCircle/>
-                                    </div>
+                                    </S.ContainerDelete>
                                     </S.ContainerDeleteAndPrice>
                                 </S.ProductContainer>
                             )

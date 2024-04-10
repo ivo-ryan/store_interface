@@ -92,7 +92,10 @@ export const Menu = () => {
     useEffect(() => {
 
          const data = () => {
+
+            const newCart = user.filter((item) => item.id !== dispatch[0].id)
             
+            console.log(newCart);
             
             const ids = user.map(i => i?.id)
 
