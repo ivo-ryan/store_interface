@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import * as S from './style';
 import { CartProductProps } from "../../types/cart";
+import { BiXCircle } from "react-icons/bi";
 
 
 export const Cart = () => {
@@ -18,6 +19,8 @@ export const Cart = () => {
             price: '',
             id: '',
     }]);
+
+    const [ indexProduct, setIndexProduct ] = useState<number>(0)
 
     const newArray = userCart.filter((item, index) => {
         return index === userCart.findIndex((obj) => {
@@ -38,14 +41,23 @@ export const Cart = () => {
         fetchData()
     },[]);
 
-    const price = userCart.map((item) => parseFloat(item.price.replace(",", ".")));
+    const price = userCart.map((item) =>    parseFloat(item.price.replace(".", "" )));
 
     const soma = price.reduce((acc, value) => acc + value
     );
 
    const somaString = String(soma);
 
-   console.log(somaString.replace(".", ","));
+   const handleClickDelete = (id:string) => {
+        const productFilter = userCart.filter((item, index) => {
+           if( item.id === id){
+        return (index)}});
+        
+        console.log(productFilter)
+    
+        // userCart.splice(indexProduct, 1)
+       
+   }
    
     
 
@@ -76,12 +88,18 @@ export const Cart = () => {
                                     </S.MProduct>
 
                                     </S.ContainerInfo>
+                                    <S.ContainerDeleteAndPrice>
+
                                     <S.PriceContainer>
                                         <span>R$ </span>
                                         <p>
                                             {item.price}
                                         </p>
                                     </S.PriceContainer>
+                                    <div onClick={() => handleClickDelete(item.id)}>
+                                    <BiXCircle/>
+                                    </div>
+                                    </S.ContainerDeleteAndPrice>
                                 </S.ProductContainer>
                             )
                         })
@@ -92,6 +110,11 @@ export const Cart = () => {
                         <div>
                             <p>{userCart.length} produtos </p>
                         </div>
+
+                        <S.PriceContainer>
+                            <span>R$</span>
+                            <p>{somaString}</p>
+                        </S.PriceContainer>
 
                         
                     </div>

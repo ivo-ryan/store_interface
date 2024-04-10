@@ -36,6 +36,10 @@ export const ProductContainer = styled.div`
             border-bottom: 1px solid #c4c4c4;
 `;
 
+export const ContainerDeleteAndPrice = styled.div`
+            display: flex;
+`;
+
 export const PriceContainer = styled.div`
             font-size: 2rem;
             font-weight: 600;
