@@ -27,7 +27,7 @@ export const Navbar = ({ id }:IdProps) => {
         }
 
         fetchData()
-    }, [cart]);
+    }, [cart]);    
 
     return (
         <S.Header>

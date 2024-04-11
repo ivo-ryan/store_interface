@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import * as S from './style';
 import { CartProductProps } from "../../types/cart";
 import { BiXCircle } from "react-icons/bi";
+import { Link } from "react-router-dom";
+import { Loading } from "../../components/loading";
 
 
 export const Cart = () => {
@@ -19,6 +21,8 @@ export const Cart = () => {
             price: '',
             id: '',
     }]);
+
+    const [ isLoading, setIsLoading ] = useState<boolean>(false);
     
     useEffect(() => {
         const fetchData = async () => {
@@ -33,6 +37,7 @@ export const Cart = () => {
     },[userCart]);
 
     const price = userCart.map((item) =>    parseFloat(item.price.replace(".", "" )));
+    
 
     const soma = price.reduce((acc, value) => acc + value
     );
@@ -47,6 +52,8 @@ export const Cart = () => {
         setTimeout( () => {
 
             const fetchData = async () => {;
+
+                setIsLoading(true);
             
             const api =  axios.create({
 
@@ -57,6 +64,8 @@ export const Cart = () => {
     
                 cart: productFilter
             });
+
+            setIsLoading(false)
     
             console.log(response.status);
         }
@@ -64,15 +73,32 @@ export const Cart = () => {
         }, 10);
        
    }
-   
-    
+
+   const handleClickFinish = async () => {
+    const api =  axios.create({
+
+        baseURL: "https://store-api-gbye.onrender.com"
+    });
+
+    const response = await api.put(`/user/${id}`,{
+
+        cart: []
+    });
+
+    console.log(response.status);
+   }
 
     return (
         <>
             <Navbar id={id}/>
             <S.MainContainer>
                 <S.SectionContainer>
-                    {
+
+                    {isLoading && <Loading/>}
+
+                    {   
+                        userCart.length > 0 ?(
+
                         userCart.map(( item, index) => {
                             return (
                                 <S.ProductContainer key={index}>
@@ -108,7 +134,7 @@ export const Cart = () => {
                                     </S.ContainerDeleteAndPrice>
                                 </S.ProductContainer>
                             )
-                        })
+                        })) : null
                     }
 
                     <div>
@@ -125,10 +151,12 @@ export const Cart = () => {
                         
                     </div>
 
-                    <S.ContainerButton>
+                    <S.ContainerButton onClick={() => handleClickFinish()}>
+                        <Link to={`/dashboard/${id}`}>
                         <button>
                             Finalizar compra
                         </button>
+                        </Link>
                     </S.ContainerButton>
                 </S.SectionContainer>
             </S.MainContainer>

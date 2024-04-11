@@ -4,6 +4,7 @@ import axios from "axios";
 import { DispatchTypes, MenuTypes } from "../../types/menuTypes";
 import * as S from './style';
 import { Link, useParams } from "react-router-dom";
+import { Loading } from "../loading";
 
 export const Menu = () => {
 
@@ -34,7 +35,9 @@ export const Menu = () => {
             id: ''
     }
     ]);
-   
+
+    const [ isLoading, setIsLoading ] = useState<boolean>(false);
+
     useEffect(() => {
         const fecthData = async () => {
             const req = await axios.get("https://store-api-gbye.onrender.com/fitness");
@@ -86,34 +89,29 @@ export const Menu = () => {
         }
 
         fetchData()
-    },[]);
+    },[user]);
     
 
     useEffect(() => {
 
          const data = () => {
 
-            const newCart = user.filter((item) => item.id !== dispatch[0].id)
-            
-            console.log(newCart);
-            
-            const ids = user.map(i => i?.id)
+            const ids = user.map((item) => item.id)
 
-            const filterId = ids.filter((item) => item === dispatch[0].id 
-             );
+            const productFilter = ids.filter((id) => id === dispatch[0].id);
+        
+        if (productFilter.length > 0 ) {
 
-            if (filterId.length > 0) {
-
-                return console.log("item adicionado");
-                
-            }else{
-                
-                console.log("Chegou aqui!")
-               return user.push(dispatch[0])
-            }
+            return console.log("Chegou aqui!");
             
+            
+        }else{
+            return user.push(dispatch[0])
+        }
+        
     }
 
+    
     data()
 
         
@@ -124,7 +122,7 @@ export const Menu = () => {
     const handlePost =  () => {  
 
          setTimeout( () => {
-
+            setIsLoading(true)
             const fetchData = async () => {;
             
             const api =  axios.create({
@@ -136,7 +134,7 @@ export const Menu = () => {
     
                 cart: user
             });
-    
+        setIsLoading(false)
             console.log(response.status);
         }
         fetchData()
@@ -149,6 +147,9 @@ export const Menu = () => {
         <S.MainContainer>
 
             <S.SectionProduct>
+
+                {isLoading && <Loading/>}
+
                 {
                     fitness.map(( product, index ) => {
                         return(
