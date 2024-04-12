@@ -7,6 +7,7 @@ import { CartProductProps } from "../../types/cart";
 import { BiXCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { Loading } from "../../components/loading";
+import gif from '../../assets/sologif.gif';
 
 
 export const Cart = () => {
@@ -23,6 +24,8 @@ export const Cart = () => {
     }]);
 
     const [ isLoading, setIsLoading ] = useState<boolean>(false);
+
+    const [ price , setPrice ] = useState<string>('')
     
     useEffect(() => {
         const fetchData = async () => {
@@ -36,13 +39,28 @@ export const Cart = () => {
         fetchData()
     },[userCart]);
 
-    const price = userCart.map((item) =>    parseFloat(item.price.replace(".", "" )));
-    
+    useEffect(() => {
 
-    const soma = price.reduce((acc, value) => acc + value
-    );
+        const finalPrice = () => {
 
-   const somaString = String(soma);
+            if (userCart.length !== 0) {
+                
+                const price = userCart.map((item) =>    parseFloat(item.price.replace(".", "" )));
+                
+                const soma = price.reduce((acc, value) => acc + value)
+                
+                
+                const somaString = String(soma);
+                setPrice(somaString)
+            }else{
+                return
+            }
+    }
+
+    finalPrice()
+        
+},[userCart]);
+
 
    const handleClickDelete = (idProduct:string) => {
         const productFilter = userCart.filter((item) => item.id !== idProduct);
@@ -97,7 +115,7 @@ export const Cart = () => {
                     {isLoading && <Loading/>}
 
                     {   
-                        userCart.length > 0 ?(
+                        userCart.length !== 0 ?(
 
                         userCart.map(( item, index) => {
                             return (
@@ -134,10 +152,14 @@ export const Cart = () => {
                                     </S.ContainerDeleteAndPrice>
                                 </S.ProductContainer>
                             )
-                        })) : null
+                        })) : <></>
                     }
 
-                    <div>
+                    {
+
+                        userCart.length !== 0 ? (
+                            <>
+                        <div>
                         <h2>Total</h2>
                         <div>
                             <p>{userCart.length} produtos </p>
@@ -145,7 +167,7 @@ export const Cart = () => {
 
                         <S.PriceContainer>
                             <span>R$</span>
-                            <p>{somaString}</p>
+                            <p>{price}</p>
                         </S.PriceContainer>
 
                         
@@ -157,7 +179,13 @@ export const Cart = () => {
                             Finalizar compra
                         </button>
                         </Link>
-                    </S.ContainerButton>
+                    </S.ContainerButton></>)
+                    :  <div>
+                         <img src={gif} alt="Carrinho vazio" />               
+                        Seu Carrinho está vazio
+                    </div>
+                    
+                }
                 </S.SectionContainer>
             </S.MainContainer>
         </>

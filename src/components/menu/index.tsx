@@ -89,7 +89,7 @@ export const Menu = () => {
         }
 
         fetchData()
-    },[user]);
+    },[user.length]);
     
 
     useEffect(() => {
@@ -100,9 +100,9 @@ export const Menu = () => {
 
             const productFilter = ids.filter((id) => id === dispatch[0].id);
         
-        if (productFilter.length > 0 ) {
+        if (productFilter.length > 0 || dispatch[0].id.length === 0 ) {
 
-            return console.log("Chegou aqui!");
+            return 
             
             
         }else{
@@ -137,7 +137,7 @@ export const Menu = () => {
         setIsLoading(false)
             console.log(response.status);
         }
-        fetchData()
+        fetchData();
         }, 10);
     }
 
