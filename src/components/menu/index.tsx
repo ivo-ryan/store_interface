@@ -14,7 +14,7 @@ export const Menu = () => {
     const [ tecnolog, setTecnolog ] = useState<MenuTypes[]>([]);
     const [ moda, setModa ] = useState<MenuTypes[]>([]);
 
-    const [ dispatch, setDispatch ] = useState<DispatchTypes[]>([
+    const [ dispatch, setDispatch ] = useState<DispatchTypes>(
         {
             description: '',
             image: '',
@@ -23,18 +23,9 @@ export const Menu = () => {
             price: '',
             id: ''
     }
-]);
+);
 
-    const [ user, setUser ] = useState<DispatchTypes[]>([
-        {
-            description: '',
-            image: '',
-            marca: '',
-            name: '',
-            price: '',
-            id: ''
-    }
-    ]);
+    const [ user, setUser ] = useState<DispatchTypes[]>([]);
 
     const [ isLoading, setIsLoading ] = useState<boolean>(false);
 
@@ -45,7 +36,6 @@ export const Menu = () => {
             const res = req.data;
 
             setFitness(res)
-
         }
 
         fecthData()
@@ -89,35 +79,35 @@ export const Menu = () => {
         }
 
         fetchData()
-    },[user.length]);
+    },[user]);
     
 
     useEffect(() => {
 
          const data = () => {
 
-            const ids = user.map((item) => item.id)
+            if (user.length > 0 ) {
+                  
+                const ids = user.map((item) => item.id)
+                
+                const productFilter = ids.filter((id) => id === dispatch.id);
+                
+                if (productFilter.length > 0  ) {
+                    
+                    return                     
+                }
+            }
 
-            const productFilter = ids.filter((id) => id === dispatch[0].id);
-        
-        if (productFilter.length > 0 || dispatch[0].id.length === 0 ) {
-
-            return 
+        if (dispatch.id.length > 0) {
+            return user.push(dispatch)
             
-            
-        }else{
-            return user.push(dispatch[0])
         }
-        
     }
 
-    
     data()
 
         
-    },[dispatch[0]]);
-
-    
+    },[dispatch]);
 
     const handlePost =  () => {  
 
@@ -130,12 +120,12 @@ export const Menu = () => {
                 baseURL: "https://store-api-gbye.onrender.com"
             });
         
-            const response = await api.put(`/user/${idUser}`,{
+            await api.put(`/user/${idUser}`,{
     
                 cart: user
             });
-        setIsLoading(false)
-            console.log(response.status);
+
+            setIsLoading(false)
         }
         fetchData();
         }, 10);
@@ -166,14 +156,14 @@ export const Menu = () => {
                                 <S.PriceProduct>
                                     <span>R$</span>
                                     {product.price}</S.PriceProduct>
-                                    <div onClick={() => {setDispatch([{
+                                    <div onClick={() => {setDispatch({
                                         id: product._id,
                                         name: product.name,
                                         marca: product.marca,
                                         description: product.description,
                                         image: product.image[0].image_url,
                                         price: product.price
-                                    }])
+                                    })
                                     handlePost()
                                     } } >
 
@@ -204,14 +194,14 @@ export const Menu = () => {
                                 <span >R$</span>
                                 {product.price}</S.PriceProduct>
 
-                            <div  onClick={() => {setDispatch([{
+                            <div  onClick={() => {setDispatch({
                                         id: product._id,
                                         name: product.name,
                                         marca: product.marca,
                                         description: product.description,
                                         image: product.image[0].image_url,
                                         price: product.price
-                                    }])
+                                    })
                                     handlePost()}}>
                             
                             <S.Button >Adicionar ao carrinho</S.Button>
@@ -240,14 +230,14 @@ export const Menu = () => {
                                     <span>R$</span>
                                     {product.price}</S.PriceProduct>
 
-                                    <div onClick={() => {setDispatch([{
+                                    <div onClick={() => {setDispatch({
                                         id: product._id,
                                         name: product.name,
                                         marca: product.marca,
                                         description: product.description,
                                         image: product.image[0].image_url,
                                         price: product.price
-                                    }])
+                                    })
                                     handlePost()}}>
 
                                    <S.Button >Adicionar ao carrinho</S.Button>

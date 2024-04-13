@@ -64,8 +64,6 @@ export const Cart = () => {
 
    const handleClickDelete = (idProduct:string) => {
         const productFilter = userCart.filter((item) => item.id !== idProduct);
-
-    console.log(productFilter);
     
         setTimeout( () => {
 
@@ -105,6 +103,8 @@ export const Cart = () => {
 
     console.log(response.status);
    }
+
+//    const products = userCart.filter((item) => item.id.length !== 0)
 
     return (
         <>
@@ -180,10 +180,16 @@ export const Cart = () => {
                         </button>
                         </Link>
                     </S.ContainerButton></>)
-                    :  <div>
+                    :  <S.EmptyCart>
+                        
+                        <div>
+
                          <img src={gif} alt="Carrinho vazio" />               
-                        Seu Carrinho está vazio
-                    </div>
+                        </div>
+                        <p>
+                            Seu carrinho está vazio <span>!</span>
+                        </p>
+                    </S.EmptyCart>
                     
                 }
                 </S.SectionContainer>

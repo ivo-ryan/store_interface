@@ -91,3 +91,55 @@ export const ContainerButton = styled.div`
             background-color: #11dd22;
         }}
 `;
+
+export const EmptyCart = styled.div`
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 50vh;
+        width: 100%;
+        
+        div{
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0 , 0, 0.9);
+            position: absolute;
+            width: 50%;
+            border-radius: 40%;
+            transition: all .5s ease;
+            
+            img{
+                width: 100%;
+                height: 100%;
+                opacity: 40% ;
+                border-radius: 40%;
+            }
+
+            @media (max-width: 768px) {
+                width: 90%;
+            }
+        }
+
+        p{  
+            font-size: 4rem;
+            font-weight: 600;
+            position: absolute;
+            color: rgb(229, 9, 20);
+            animation: notice 1s ease infinite alternate;
+
+            @keyframes notice {
+                to{
+                    filter: drop-shadow(0 0 .5rem rgb(229, 9, 20));
+                }
+            }
+
+            span{
+                color: #fff;
+                font-size: 4rem;
+            }
+
+        }
+`;
