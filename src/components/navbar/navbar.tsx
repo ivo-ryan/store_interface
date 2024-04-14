@@ -5,11 +5,12 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 interface IdProps {
-    id: string | undefined
+    id: string | undefined,
+    productFilter: (value: React.SetStateAction<string>) => void
 }
 
 
-export const Navbar = ({ id }:IdProps) => {
+export const Navbar = ({ id , productFilter }:IdProps) => {
 
 
     const [ cart , setCart ] = useState([]);
@@ -27,7 +28,8 @@ export const Navbar = ({ id }:IdProps) => {
         }
 
         fetchData()
-    }, [cart]);    
+    }, [cart]);  
+
 
     return (
         <S.Header>
@@ -36,7 +38,9 @@ export const Navbar = ({ id }:IdProps) => {
                 <li>
                     <S.Search>
 
-                        <input type="text" />
+                        <input type="text" 
+                        onChange={(event) => productFilter(event.target.value)}
+                        />
 
                         <Link to={`/cart/${id}`}>
                         <S.Cart>  
