@@ -1,20 +1,21 @@
-import { AiOutlineShoppingCart , AiOutlineUser} from 'react-icons/ai';
+import { AiOutlineShoppingCart , AiOutlineUser, AiOutlineSearch} from 'react-icons/ai';
 import * as S from './style';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-interface IdProps {
+interface NavbarProps {
     id: string | undefined,
-    productFilter: (value: React.SetStateAction<string>) => void
-}
+    productFilter?: any ,
+    busca?: string
+};
 
 
-export const Navbar = ({ id , productFilter }:IdProps) => {
+export const Navbar = ({ id , productFilter, busca }:NavbarProps) => {
 
 
     const [ cart , setCart ] = useState([]);
-    const [user, setUser] = useState<string>('')
+    const [user, setUser] = useState<string>('');
     
     useEffect(() => {
         const fetchData = async () => {
@@ -25,7 +26,7 @@ export const Navbar = ({ id , productFilter }:IdProps) => {
             setCart(res);
             setUser(data)
    
-        }
+        };
 
         fetchData()
     }, [cart]);  
@@ -37,11 +38,15 @@ export const Navbar = ({ id , productFilter }:IdProps) => {
                 <li><h2>Amazon</h2></li>
                 <li>
                     <S.Search>
+                        <S.ContainerSearch>
 
                         <input type="text" 
+                        value={busca}
                         onChange={(event) => productFilter(event.target.value)}
                         />
+                        <AiOutlineSearch/>
 
+                        </S.ContainerSearch>
                         <Link to={`/cart/${id}`}>
                         <S.Cart>  
 

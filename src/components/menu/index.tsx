@@ -30,7 +30,7 @@ export const Menu = () => {
     const [ isLoading, setIsLoading ] = useState<boolean>(false);
 
     const [ productFilter, setProductFilter ] = useState<string>('')
-
+    
     useEffect(() => {
         const fecthData = async () => {
             const req = await axios.get("https://store-api-gbye.onrender.com/fitness");
@@ -133,15 +133,18 @@ export const Menu = () => {
         }, 10);
     }
 
-    const filterF = fitness.filter((item) => item.description.startsWith(productFilter) )
+    const searchLowerCase = productFilter.toLowerCase()
 
-    const filterM = moda.filter((item) =>  item.description.startsWith(productFilter) || item.name.startsWith(productFilter));
+    const filterF = fitness.filter((item) => item.description.toLowerCase().includes(searchLowerCase) );
 
-    const filterT = tecnolog.filter((item) => item.description.startsWith(productFilter) || item.name.startsWith(productFilter))
+    const filterM = moda.filter((item) =>  item.description.toLowerCase().includes(searchLowerCase) );
+
+    const filterT = tecnolog.filter((item) => item.description.toLowerCase().includes(searchLowerCase));
+    
     
     return (
         <>
-        <Navbar id={idUser} productFilter={setProductFilter}/>
+        <Navbar id={idUser} productFilter={setProductFilter} busca={productFilter}/>
         <S.MainContainer>
 
             <S.SectionProduct>

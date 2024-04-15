@@ -26,6 +26,34 @@ export const Search = styled.div`
             gap: 2rem;
 `;
 
+export const ContainerSearch = styled.div`
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .1rem;
+
+        input{
+                padding: .2rem .5rem  ;
+                border: none;
+                color: #b47500;
+                font-weight: 600;
+        }
+
+        svg{    
+                cursor: pointer;
+                color: orange;
+                font-size: 2.6rem;
+                padding: .2rem;
+                border: none;
+                background-color: #3d526c;
+                transition: all .5s ease;
+
+                &:hover{
+                        background-color: #232F3E;
+                }
+        }
+`;
+
 export const LocContainer = styled.div`
                 display: flex;
                 align-items: center;
