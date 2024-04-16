@@ -29,7 +29,7 @@ export const Menu = () => {
 
     const [ isLoading, setIsLoading ] = useState<boolean>(false);
 
-    const [ productFilter, setProductFilter ] = useState<string>('')
+    const [ productFilter, setProductFilter ] = useState<string>('');
     
     useEffect(() => {
         const fecthData = async () => {
@@ -37,7 +37,7 @@ export const Menu = () => {
 
             const res = req.data;
 
-            setFitness(res)
+            setFitness(res);
         }
 
         fecthData()
@@ -46,11 +46,11 @@ export const Menu = () => {
 
     useEffect(() => {
         const fecthData = async () => {
-            const req = await axios.get("https://store-api-gbye.onrender.com/tecnologia")
+            const req = await axios.get("https://store-api-gbye.onrender.com/tecnologia");
 
             const res = req.data;
             
-            setTecnolog(res)
+            setTecnolog(res);
         }
 
         fecthData()
@@ -59,11 +59,11 @@ export const Menu = () => {
 
     useEffect(() => {
         const fecthData = async () => {
-            const req = await axios.get("https://store-api-gbye.onrender.com/moda")
+            const req = await axios.get("https://store-api-gbye.onrender.com/moda");
 
             const res = req.data;
             
-            setModa(res)
+            setModa(res);
         }
 
         fecthData()
@@ -73,7 +73,7 @@ export const Menu = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-             const res = await axios.get(`https://store-api-gbye.onrender.com/user/${idUser}`)
+             const res = await axios.get(`https://store-api-gbye.onrender.com/user/${idUser}`);
 
             const req = await res.data;
             
@@ -101,7 +101,7 @@ export const Menu = () => {
             }
 
         if (dispatch.id.length > 0) {
-            return user.push(dispatch)
+            return user.push(dispatch);
             
         }
     }
@@ -114,7 +114,7 @@ export const Menu = () => {
     const handlePost =  () => {  
 
          setTimeout( () => {
-            setIsLoading(true)
+            setIsLoading(true);
             const fetchData = async () => {;
             
             const api =  axios.create({
@@ -127,13 +127,13 @@ export const Menu = () => {
                 cart: user
             });
 
-            setIsLoading(false)
+            setIsLoading(false);
         }
         fetchData();
         }, 10);
     }
 
-    const searchLowerCase = productFilter.toLowerCase()
+    const searchLowerCase = productFilter.toLowerCase();
 
     const filterF = fitness.filter((item) => item.description.toLowerCase().includes(searchLowerCase) );
 

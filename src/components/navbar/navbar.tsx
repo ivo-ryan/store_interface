@@ -1,4 +1,4 @@
-import { AiOutlineShoppingCart , AiOutlineUser, AiOutlineSearch} from 'react-icons/ai';
+import { AiOutlineShoppingCart , AiOutlineUser, AiOutlineSearch, AiFillHome} from 'react-icons/ai';
 import * as S from './style';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -19,12 +19,12 @@ export const Navbar = ({ id , productFilter, busca }:NavbarProps) => {
     
     useEffect(() => {
         const fetchData = async () => {
-            const req = await axios.get(`https://store-api-gbye.onrender.com/user/${id}`)
+            const req = await axios.get(`https://store-api-gbye.onrender.com/user/${id}`);
 
-            const res = req.data.cart
-            const  data = req.data.user
+            const res = req.data.cart;
+            const  data = req.data.user;
             setCart(res);
-            setUser(data)
+            setUser(data);
    
         };
 
@@ -35,7 +35,14 @@ export const Navbar = ({ id , productFilter, busca }:NavbarProps) => {
     return (
         <S.Header>
             <S.Nav>
-                <li><h2>Amazon</h2></li>
+                <li>
+                    <Link to={`/dashboard/${id}`}>
+
+                    <S.ContainerImage>  <AiFillHome />
+                   </S.ContainerImage>
+                   
+                    </Link>
+                    </li>
                 <li>
                     <S.Search>
                         <S.ContainerSearch>

@@ -47,7 +47,7 @@ export const Details = () => {
                 marca: res.marca,
                 name: res.name,
                 price: res.price
-            })
+            });
         };
 
         fetchData();

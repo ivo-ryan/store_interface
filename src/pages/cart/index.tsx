@@ -104,7 +104,6 @@ export const Cart = () => {
     console.log(response.status);
    }
 
-//    const products = userCart.filter((item) => item.id.length !== 0)
 
     return (
         <>
@@ -158,20 +157,23 @@ export const Cart = () => {
                     {
 
                         userCart.length !== 0 ? (
-                            <>
-                        <div>
+                            <S.FinishCompra>
+                        
                         <h2>Total</h2>
-                        <div>
-                            <p>{userCart.length} produtos </p>
-                        </div>
+                        <S.QuantityProducts>
+                            <p> <span>
+                                ( {userCart.length} )</span>  produtos </p>
+                        </S.QuantityProducts>
 
-                        <S.PriceContainer>
+                        <S.FinishPrice>
+                            <h4>Sub-total</h4>
+                            <p>
                             <span>R$</span>
-                            <p>{price}</p>
-                        </S.PriceContainer>
+                                {price},00</p>
+                        </S.FinishPrice>
 
                         
-                    </div>
+                  
 
                     <S.ContainerButton onClick={() => handleClickFinish()}>
                         <Link to={`/dashboard/${id}`}>
@@ -179,8 +181,11 @@ export const Cart = () => {
                             Finalizar compra
                         </button>
                         </Link>
-                    </S.ContainerButton></>)
-                    :  <S.EmptyCart>
+                    </S.ContainerButton>
+                    </S.FinishCompra>)
+                    :  
+                    
+                    <S.EmptyCart>
                         
                         <div>
 

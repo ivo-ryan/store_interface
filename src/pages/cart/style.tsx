@@ -79,17 +79,64 @@ export const ContainerInfo = styled.div`
 
 export const ContainerButton = styled.div`
     button{  color: black;
-        background-color:#14ff27; ;
+        background-color: rgb(255, 69, 0) ;
         border: none;
-        border-radius: 10rem ;
-        padding: .5rem 1.5rem  ;
+        color: #fff;
+        padding: .9rem 1.5rem  ;
         font-weight: 800;
         cursor: pointer;
         transition: all .5s;
 
         &:hover{
-            background-color: #11dd22;
+            background-color: rgb(219, 60, 3);
         }}
+`;
+
+export const FinishCompra = styled.div`
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 80%;
+`;
+
+export const QuantityProducts = styled.div`
+        p{
+            font-weight: 600;
+
+        span{
+
+            font-weight: 700;
+            color: rgb(86, 89, 89);
+            font-size: 1.6rem;
+        }
+    }
+`;
+
+export const FinishPrice = styled.div`
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        h4{
+            color: rgb(86, 89, 89);
+            font-size: 1.6rem;
+        }
+
+        p{
+            font-size: 2rem;
+            font-weight: 800;
+            display: flex;
+            gap: .2rem;
+            color: orangered;
+
+        span{
+            height: 100%;
+            color: rgb(86, 89, 89);
+            font-size: 1.2rem;
+            
+        }
+
+    }
+
 `;
 
 export const EmptyCart = styled.div`

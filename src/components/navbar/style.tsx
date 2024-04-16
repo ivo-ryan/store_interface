@@ -18,6 +18,29 @@ export const Nav = styled.nav`
         padding: 0 2rem ;
 `;
 
+export const ContainerImage = styled.div`
+        svg{
+                width: 5rem;
+                font-size: 4rem;
+                color: rgb(255, 165, 0);
+                animation: home 2s ease infinite alternate;
+                cursor: pointer;
+                transition: all .5s ease;
+
+                &:hover{
+                        animation: none;
+                        transform: scale(1.2);
+                        filter: drop-shadow( 0 0 .3rem #fff)
+                }
+
+                @keyframes home {
+                        to{
+                                filter: drop-shadow( 0 0 .3rem rgba(72, 255, 0, 0.746));
+                        }
+                }
+        }
+`;
+
 export const Search = styled.div`
             display: flex;
             justify-content: center;
