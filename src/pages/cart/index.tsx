@@ -129,7 +129,7 @@ export const Cart = () => {
                                     <S.MProduct>
                                         <p>
 
-                                        {item.description}
+                                        {item.description.substring(0, 30)} ...
                                         </p>
 
                                         <p>{item.marca}</p>

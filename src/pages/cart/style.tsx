@@ -6,6 +6,10 @@ export const MainContainer = styled.main`
         @media (max-width: 768px) {
             margin-top: 20%;
         }
+
+        @media (max-width: 425px) {
+            margin-top: 35%;
+        }
 `;
 
 
@@ -13,6 +17,13 @@ export const ImageProduct = styled.div`
         img{
             width: 6rem;
             max-height: 7rem;
+        }
+
+        @media (max-width: 425px) {
+           img { 
+            width: 5rem;
+            max-height: 6rem;
+        }
         }
 `;
 
@@ -24,6 +35,7 @@ export const SectionContainer = styled.section`
         align-items: center;
         gap: 2rem;
         padding-bottom: 5rem;
+        padding: 0 1rem ;
 `;
 
 export const ProductContainer = styled.div`
@@ -34,11 +46,19 @@ export const ProductContainer = styled.div`
             padding: 1rem;
             width: 70%;
             border-bottom: 1px solid #c4c4c4;
+
+            @media (max-width: 425px) {
+                width: 100%;
+            }
 `;
 
 export const ContainerDeleteAndPrice = styled.div`
             display: flex;
             gap: 2rem;
+
+            @media (max-width: 425px) {
+                width: 20%;
+            }
 `;
 
 export const ContainerDelete = styled.div`
@@ -50,8 +70,7 @@ export const ContainerDelete = styled.div`
 `;
 
 export const PriceContainer = styled.div`
-            font-size: 2rem;
-            font-weight: 600;
+            font-weight: 700;
             display: flex;
             gap: .2rem;
 
@@ -61,12 +80,24 @@ export const PriceContainer = styled.div`
             font-size: 1.2rem;
             
         }
+
+        @media (max-width: 425px) {
+            p{
+                font-size: 1.4rem;
+            }
+        }
 `;
 
 export const MProduct = styled.div`
                 p+p{color: #007185 ;
                 font-weight: 600;
                 padding-top: .5rem;}
+
+                @media (max-width: 425px) {
+                    p{
+                    font-size: 1.4rem;
+                    }
+                }
 `;
 
 export const ContainerInfo = styled.div`

@@ -163,7 +163,7 @@ export const Menu = () => {
                                 </Link>
                                 </S.ImageContainer>
 
-                                <p>{product.description}</p>
+                                <p>{product.description.substring(0,50)} ...</p>
                                 <S.PriceProduct>
                                     <span>R$</span>
                                     {product.price}</S.PriceProduct>
@@ -200,7 +200,7 @@ export const Menu = () => {
                             </Link>
                             </S.ImageContainer>
 
-                            <p>{product.description}</p>
+                            <p>{product.description.substring(0,50)} ...</p>
                             <S.PriceProduct>
                                 <span >R$</span>
                                 {product.price}</S.PriceProduct>
@@ -236,7 +236,7 @@ export const Menu = () => {
                                 </Link>
                                 </S.ImageContainer>
 
-                                <p>{product.description}</p>
+                                <p>{product.description.substring(0,50)} ...</p>
                                 <S.PriceProduct>
                                     <span>R$</span>
                                     {product.price}</S.PriceProduct>

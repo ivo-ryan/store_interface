@@ -19,6 +19,12 @@ export const SectionProduct = styled.section`
             p{
                 color: black;
             }
+
+            @media (max-width: 425px) {
+                p{
+                    font-size: 1.3rem;
+                }
+            }
 `;
 
 
@@ -30,7 +36,17 @@ export const Product = styled.div`
         justify-content: space-around;
         align-items: center;
         gap: 10px;
-        margin-top: 3rem;
+        margin-top: 10%;
+        padding: 0 1rem;
+
+        @media (max-width: 425px) {
+            justify-content: center;
+            width: 150px;
+            padding: 0 .5rem ;
+            height: 320px;
+            gap: 1rem;
+            margin-top: 15%;
+        }
 
 `;
 
@@ -44,14 +60,27 @@ export const ImageContainer = styled.div`
             background-color: #F7F7F7;
             
         a{  
-            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            width: 100%;
             height: 100%;
             padding: 1rem;
 
             img{
             max-height: 100%;
-            width: 100%;
+            max-width: 100%;
         }
+        }
+
+        @media (max-width: 425px) {
+
+            width: 120px;
+            height: 150px;
+
+            a{
+                max-width: 100%;
+            }
         }
 
 `;
@@ -67,6 +96,10 @@ export const PriceProduct = styled.p`
             font-size: 1.2rem;
             
         }
+
+        @media (max-width: 425px) {
+            font-size: 1.6rem;
+        }
 `;
 
 export const Button = styled.button`
@@ -80,6 +113,12 @@ export const Button = styled.button`
 
         &:hover{
             background-color: #F7CA00;
+        }
+
+        @media (max-width: 425px) {
+            padding: .5rem .6rem;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
 
 `;

@@ -15,6 +15,10 @@ export const MainContainer = styled.main`
                 margin-top: 20%;
             }
 
+            @media (max-width: 425px) {
+                margin-top: 30%;
+            }
+
 `;
 
 export const ContainerProduct = styled.div`
@@ -106,6 +110,12 @@ export const MainImg = styled.div`
                 max-width: 100%;
                 max-height: 100%;
             }
+
+            @media (max-width: 425px) {
+                width: 200px;
+                height: 250px;
+                margin-top: 2rem;
+            }
 `;
 
 
@@ -114,6 +124,10 @@ export const InfoContainer = styled.div`
 
             @media (max-width: 768px) {
                 max-width: 60%;
+            }
+
+            @media (max-width: 425px) {
+                max-width: 80%;
             }
 `;
 
@@ -134,7 +148,9 @@ export const Description = styled.div`
                 color: #007185 ;
                 font-weight: 600;
                 padding-top: .5rem;
-            }       
+            }    
+            
+            
 `;
 
 export const DispatchContainer = styled.section`
@@ -171,6 +187,14 @@ export const ButtonContainer = styled.div`
 
                 &:hover{
                     background-color: #F7CA00;
+                }
+            }
+
+            
+            @media (max-width: 425px) {
+                width: 100%;
+                button{
+                    font-weight: 600;
                 }
             }
 `;
@@ -218,6 +242,13 @@ export const SecurityContainer = styled.div`
                     padding-top: .5rem;
                    }
                 }
+
+                
+            @media (max-width: 425px) {
+                p{
+                    font-size: 1.4rem;
+                }
+            }
             }
 
 `;
