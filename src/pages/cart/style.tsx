@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const MainContainer = styled.main`
         margin-top: 10%;
+        margin-bottom: 3rem;
 
         @media (max-width: 768px) {
             margin-top: 20%;
@@ -48,6 +49,7 @@ export const ProductContainer = styled.div`
             border-bottom: 1px solid #c4c4c4;
 
             @media (max-width: 425px) {
+                justify-content: center;
                 width: 100%;
             }
 `;
@@ -83,7 +85,7 @@ export const PriceContainer = styled.div`
 
         @media (max-width: 425px) {
             p{
-                font-size: 1.4rem;
+                font-size: 1.3rem;
             }
         }
 `;
@@ -95,7 +97,7 @@ export const MProduct = styled.div`
 
                 @media (max-width: 425px) {
                     p{
-                    font-size: 1.4rem;
+                    font-size: 1.2rem;
                     }
                 }
 `;
@@ -105,6 +107,12 @@ export const ContainerInfo = styled.div`
             justify-content: center;
             align-items: center;
             gap: 2rem;
+
+            @media (max-width: 425px) {
+                    justify-content: flex-start;
+                     gap: 1rem ; 
+                     width: 70%;
+                }
 `;
 
 
@@ -121,6 +129,14 @@ export const ContainerButton = styled.div`
         &:hover{
             background-color: rgb(219, 60, 3);
         }}
+
+        @media (max-width: 425px) {
+                        button{
+                           font-size: 1.3rem;
+                           font-weight: 600;
+                           padding: .4rem .5rem;
+                        }
+                }
 `;
 
 export const FinishCompra = styled.div`
@@ -128,6 +144,15 @@ export const FinishCompra = styled.div`
         justify-content: space-around;
         align-items: center;
         width: 80%;
+
+        @media (max-width: 425px) {
+                        width: 100%;
+                        gap: .5rem;
+
+                        h2{
+                            font-size: 1.5rem;
+                        }
+                }
 `;
 
 export const QuantityProducts = styled.div`
@@ -141,6 +166,15 @@ export const QuantityProducts = styled.div`
             font-size: 1.6rem;
         }
     }
+    @media (max-width: 425px) {
+                       p{
+                        font-size: 1.4rem;
+
+                        span{
+                            font-size: 1.3rem;
+                        }
+                       }
+                }
 `;
 
 export const FinishPrice = styled.div`
@@ -167,6 +201,17 @@ export const FinishPrice = styled.div`
         }
 
     }
+
+    @media (max-width: 425px) {
+                      h4{
+                        font-size: 1.2rem;
+                      }
+
+                      p{
+
+                        font-size: 1.6rem;
+                      }
+                }
 
 `;
 

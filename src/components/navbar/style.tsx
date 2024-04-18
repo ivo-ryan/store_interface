@@ -16,6 +16,10 @@ export const Nav = styled.nav`
         justify-content: space-between;
         align-items: center;
         padding: 0 2rem ;
+
+        @media (max-width: 425px) {
+                        padding: 0 .5rem;
+                }
 `;
 
 export const ContainerImage = styled.div`
@@ -38,6 +42,10 @@ export const ContainerImage = styled.div`
                                 filter: drop-shadow( 0 0 .3rem rgba(72, 255, 0, 0.746));
                         }
                 }
+
+                @media (max-width: 425px) {
+                        width: 3rem;
+                }
         }
 `;
 
@@ -47,6 +55,12 @@ export const Search = styled.div`
             align-items: center;
             color: black;
             gap: 2rem;
+
+            @media (max-width: 425px) {
+                        gap: .5rem ;
+                }
+
+            
 `;
 
 export const ContainerSearch = styled.div`
@@ -75,6 +89,12 @@ export const ContainerSearch = styled.div`
                         background-color: #232F3E;
                 }
         }
+
+        @media (max-width: 425px) {
+                       input{
+                        width: 11rem;
+                       }
+                }
 `;
 
 export const LocContainer = styled.div`

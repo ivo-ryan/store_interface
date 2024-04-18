@@ -41,7 +41,7 @@ export const Product = styled.div`
 
         @media (max-width: 425px) {
             justify-content: center;
-            width: 150px;
+            width: 140px;
             padding: 0 .5rem ;
             height: 320px;
             gap: 1rem;

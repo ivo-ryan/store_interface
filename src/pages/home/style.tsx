@@ -75,7 +75,7 @@ export const ContainerValidate = styled.div`
         display: flex;
         flex-direction: column;
         text-align: center;
-        width: 50%;
+        width: 70%;
         margin-bottom: 100px;
         gap: 16px;
         transition: all .5s ease;
