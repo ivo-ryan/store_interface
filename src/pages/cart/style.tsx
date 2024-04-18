@@ -49,7 +49,6 @@ export const ProductContainer = styled.div`
             border-bottom: 1px solid #c4c4c4;
 
             @media (max-width: 425px) {
-                justify-content: center;
                 width: 100%;
             }
 `;
