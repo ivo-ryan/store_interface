@@ -236,7 +236,7 @@ export const Menu = () => {
                                 </Link>
                                 </S.ImageContainer>
 
-                                <p>{product.description.substring(0,50)} ...</p>
+                                <p>{product.description.substring(0,40)} ...</p>
                                 <S.PriceProduct>
                                     <span>R$</span>
                                     {product.price}</S.PriceProduct>

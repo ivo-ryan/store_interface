@@ -3,10 +3,6 @@ import styled from "styled-components";
 export const MainContainer = styled.main`
             margin-top: 10%;
             transition: all .5s ease;
-
-            @media (max-width: 768px) {
-                margin-top: 20%;
-            }
 `;
 
 export const SectionProduct = styled.section`
@@ -41,7 +37,7 @@ export const Product = styled.div`
 
         @media (max-width: 425px) {
             justify-content: center;
-            width: 130px;
+            width: 135px;
             padding: 0 .5rem ;
             height: 320px;
             gap: 1rem;
@@ -75,7 +71,7 @@ export const ImageContainer = styled.div`
 
         @media (max-width: 425px) {
 
-            width: 100px;
+            width: 85px;
             height: 150px;
 
             a{
