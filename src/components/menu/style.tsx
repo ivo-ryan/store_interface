@@ -37,9 +37,9 @@ export const Product = styled.div`
 
         @media (max-width: 425px) {
             justify-content: center;
-            width: 135px;
+            width: 115px;
             padding: 0 .5rem ;
-            height: 320px;
+            height: 230px;
             gap: 1rem;
             margin-top: 15%;
         }
@@ -71,8 +71,8 @@ export const ImageContainer = styled.div`
 
         @media (max-width: 425px) {
 
-            width: 85px;
-            height: 150px;
+            width: 6rem;
+            height: 100px;
 
             a{
                 max-width: 100%;
@@ -100,7 +100,7 @@ export const PriceProduct = styled.p`
 
 export const Button = styled.button`
         color: black;
-        background-color:#FFD814; ;
+        background-color:#FFD814; 
         border: none;
         border-radius: 10rem ;
         padding: .5rem 1.5rem  ;

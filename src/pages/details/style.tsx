@@ -16,7 +16,7 @@ export const MainContainer = styled.main`
             }
 
             @media (max-width: 425px) {
-                margin-top: 30%;
+                margin-top: 40%;
             }
 
 `;
@@ -218,19 +218,22 @@ export const ContainerPrice = styled.div`
 `;
 
 export const SecurityContainer = styled.div`
+            padding-top: 4rem;
+
             ul{
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 width: 100%;
+                max-height: 10rem;
                 gap: 10%;
 
                 li{
                     display: flex;
-                    justify-content: center;
+                    justify-content: space-between;
                     align-items: center;
                     flex-direction: column;
-                   max-width: 8rem;
+                   max-width: 12rem;
 
                    img{
                     width: 5rem;
