@@ -3,6 +3,11 @@ import styled from "styled-components";
 export const MainContainer = styled.main`
             margin-top: 10%;
             transition: all .5s ease;
+            margin: 15% 0 4rem 0;
+           
+            @media (max-width: 425px) {
+                margin: 40% 0 4rem 0;
+            }
 `;
 
 export const SectionProduct = styled.section`
@@ -10,13 +15,17 @@ export const SectionProduct = styled.section`
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 1rem;         
             
             p{
                 color: black;
             }
 
             @media (max-width: 425px) {
+                display: grid;
+                grid-template-columns: 1fr  1fr ;
+                padding: 0 1rem;
+                gap: 2rem;
                 p{
                     font-size: 1.3rem;
                 }
@@ -31,17 +40,15 @@ export const Product = styled.div`
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        gap: 10px;
-        margin-top: 10%;
+        gap: 1rem;
         padding: 0 1rem;
 
         @media (max-width: 425px) {
             justify-content: center;
-            width: 115px;
+            width: 140px;
             padding: 0 .5rem ;
             height: 230px;
             gap: 1rem;
-            margin-top: 15%;
         }
 
 `;
@@ -71,8 +78,8 @@ export const ImageContainer = styled.div`
 
         @media (max-width: 425px) {
 
-            width: 6rem;
-            height: 100px;
+            width: 8rem;
+            height: 11rem;
 
             a{
                 max-width: 100%;

@@ -58,7 +58,8 @@ export const ContainerDeleteAndPrice = styled.div`
             gap: 2rem;
 
             @media (max-width: 425px) {
-                width: 20%;
+                width: 8rem;
+                gap: 1rem;
             }
 `;
 
@@ -145,8 +146,9 @@ export const FinishCompra = styled.div`
         width: 80%;
 
         @media (max-width: 425px) {
+                        flex-direction: column;
                         width: 100%;
-                        gap: .5rem;
+                        gap: 1rem;
 
                         h2{
                             font-size: 1.5rem;
