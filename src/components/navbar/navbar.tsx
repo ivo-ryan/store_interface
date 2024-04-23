@@ -28,7 +28,7 @@ export const Navbar = ({ id , productFilter, busca }:NavbarProps) => {
    
         };
 
-        fetchData()
+        fetchData();
     }, [cart]);  
 
 

@@ -5,6 +5,7 @@ import axios from "axios";
 import { MenuTypes } from "../../types/menuTypes";
 import * as S from './style';
 import { DispatchProps } from "../../types/detailsTypes";
+import { Loading } from "../../components/loading";
 
 export const Details = () => {
 
@@ -13,16 +14,7 @@ export const Details = () => {
     const [ product , setProduct ] = useState<MenuTypes[]>([]);
 
     const [ paginationImg , setPaginationImg ] = useState<number>(1);
-    const [ userCart, setUserCart ] = useState([
-        {
-            description: '',
-            image: '',
-            marca: '',
-            name: '',
-            price: '',
-            id: ''
-    }
-    ]);
+    const [ userCart, setUserCart ] = useState<DispatchProps[]>([]);
 
     const [ dispatch, setDispatch ] = useState<DispatchProps>( {
             description: '',
@@ -31,7 +23,9 @@ export const Details = () => {
             name: '',
             price: '',
             id: ''
-    });    
+    });  
+    
+    const [ isLoading, setIsLoading ] = useState<boolean>(false);
     
     useEffect(() => {
         const fetchData = async () => {
@@ -77,11 +71,9 @@ export const Details = () => {
 
             if (filterId.length > 0) {
 
-                return console.log("item adicionado");
-                
+                return 
+
             }else{
-                
-                console.log("Chegou aqui!")
                return userCart.push(dispatch)
             }
             
@@ -92,23 +84,25 @@ export const Details = () => {
         setTimeout( () => {
 
            const fetchData = async () => {
+
+            setIsLoading(true);
            
            const api =  axios.create({
 
                baseURL: "https://store-api-gbye.onrender.com"
            });
        
-           const response = await api.put(`/user/${user}`,{
+            await api.put(`/user/${user}`,{
    
                cart: userCart
            });
-   
-           console.log(response.status);
+           
+           setIsLoading(false);
 
        }
-       fetchData()
-       }, 10)
-   }
+       fetchData();
+       }, 10);
+   };
 
     return (
         <>
@@ -117,6 +111,8 @@ export const Details = () => {
             <S.MainContainer>
 
                 <S.ContainerProduct>
+
+                {isLoading && <Loading/>}
 
                     {
                         product.map((item , index) => {
