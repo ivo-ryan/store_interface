@@ -167,7 +167,7 @@ export const Menu = () => {
                                 <S.PriceProduct>
                                     <span>R$</span>
                                     {product.price}</S.PriceProduct>
-                                    <div onClick={() => {setDispatch({
+                                    <S.Button onClick={() => {setDispatch({
                                         id: product._id,
                                         name: product.name,
                                         marca: product.marca,
@@ -178,8 +178,8 @@ export const Menu = () => {
                                     handlePost()
                                     } } >
 
-                            <S.Button>Adicionar ao carrinho</S.Button>
-                                    </div>
+                            <button>Adicionar ao carrinho</button>
+                                    </S.Button>
                             </S.Product>
                         )
                     })
@@ -205,7 +205,7 @@ export const Menu = () => {
                                 <span >R$</span>
                                 {product.price}</S.PriceProduct>
 
-                            <div  onClick={() => {setDispatch({
+                            <S.Button  onClick={() => {setDispatch({
                                         id: product._id,
                                         name: product.name,
                                         marca: product.marca,
@@ -215,8 +215,8 @@ export const Menu = () => {
                                     })
                                     handlePost()}}>
                             
-                            <S.Button >Adicionar ao carrinho</S.Button>
-                                </div>
+                            <button >Adicionar ao carrinho</button>
+                                </S.Button>
 
                         </S.Product>
                         )
@@ -241,7 +241,7 @@ export const Menu = () => {
                                     <span>R$</span>
                                     {product.price}</S.PriceProduct>
 
-                                    <div onClick={() => {setDispatch({
+                                    <S.Button onClick={() => {setDispatch({
                                         id: product._id,
                                         name: product.name,
                                         marca: product.marca,
@@ -251,8 +251,8 @@ export const Menu = () => {
                                     })
                                     handlePost()}}>
 
-                                   <S.Button >Adicionar ao carrinho</S.Button>
-                                        </div>
+                                   <button >Adicionar ao carrinho</button>
+                                        </S.Button>
 
 
                             </S.Product>
