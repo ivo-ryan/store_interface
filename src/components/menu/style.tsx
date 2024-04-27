@@ -52,10 +52,14 @@ export const Product = styled.div`
 
         @media (max-width: 425px) {
             justify-content: space-evenly;
-            max-width: 140px;
+            max-width: 150px;
             padding: 0 .5rem ;
             height: 260px;
             gap: 1rem;
+        }
+
+        @media (max-width: 320px) {
+            max-width: 100px;
         }
 
 `;
@@ -128,6 +132,11 @@ export const Button = styled.button`
             padding: .5rem .6rem;
             font-size: 1.2rem;
             font-weight: 600;
+        }
+
+        @media (max-width: 320px) {
+            font-size: 1rem;
+            padding: .3rem 0 ;
         }
 
 `;
