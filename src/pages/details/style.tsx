@@ -99,14 +99,13 @@ export const MainImg = styled.div`
             max-height: 340px;
 
             img{
-                max-width: 100%;
-                max-height: 100%;
+                width: 100%;
+                height: 100%;
             }
 
             @media (max-width: 425px) {
-                max-width: 200px;
+                max-width: 150px;
                 max-height: 250px;
-                margin-top: 2rem;
             }
 `;
 

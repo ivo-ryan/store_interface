@@ -31,7 +31,7 @@ export const SectionProduct = styled.section`
 
 
 export const Product = styled.div`
-        width: 240px;
+        max-width: 240px;
         height: 432.906px;
         display: flex;
         flex-direction: column;
@@ -42,7 +42,7 @@ export const Product = styled.div`
 
         @media (max-width: 425px) {
             justify-content: center;
-            width: 140px;
+            max-width: 140px;
             padding: 0 .5rem ;
             height: 230px;
             gap: 1rem;
@@ -68,8 +68,8 @@ export const ImageContainer = styled.div`
             padding: 1rem;
 
             img{
-            max-height: 100%;
-            max-width: 100%;
+            height: 100%;
+            width: 100%;
         }
         }
 
@@ -79,7 +79,7 @@ export const ImageContainer = styled.div`
             max-height: 11rem;
 
             a{
-                max-width: 100%;
+                width: 100%;
             }
         }
 

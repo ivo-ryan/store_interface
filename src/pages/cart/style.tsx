@@ -41,7 +41,7 @@ export const ProductContainer = styled.div`
             border-bottom: 1px solid #c4c4c4;
 
             @media (max-width: 425px) {
-                width: 100%;
+                min-width: 100%;
             }
 `;
 
@@ -50,7 +50,7 @@ export const ContainerDeleteAndPrice = styled.div`
             gap: 2rem;
 
             @media (max-width: 425px) {
-                width: 8rem;
+                max-width: 8rem;
                 gap: 1rem;
             }
 `;
@@ -109,7 +109,8 @@ export const ContainerInfo = styled.div`
 
 
 export const ContainerButton = styled.div`
-    button{  color: black;
+    button{  
+        color: black;
         background-color: rgb(255, 69, 0) ;
         border: none;
         color: #fff;
