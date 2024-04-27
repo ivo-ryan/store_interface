@@ -1,28 +1,20 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.main`
-        margin-top: 10%;
+        margin-top: 11rem;
         margin-bottom: 3rem;
-
-        @media (max-width: 768px) {
-            margin-top: 20%;
-        }
-
-        @media (max-width: 425px) {
-            margin-top: 35%;
-        }
 `;
 
 
 export const ImageProduct = styled.div`
         img{
-            width: 6rem;
+            max-width: 6rem;
             max-height: 7rem;
         }
 
         @media (max-width: 425px) {
            img { 
-            width: 5rem;
+            max-width: 5rem;
             max-height: 6rem;
         }
         }

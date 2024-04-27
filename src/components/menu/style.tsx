@@ -1,13 +1,9 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.main`
-            margin-top: 10%;
             transition: all .5s ease;
-            margin: 15% 0 4rem 0;
+            margin: 11rem 0 4rem 0;
            
-            @media (max-width: 425px) {
-                margin: 40% 0 4rem 0;
-            }
 `;
 
 export const SectionProduct = styled.section`
@@ -24,6 +20,7 @@ export const SectionProduct = styled.section`
             @media (max-width: 425px) {
                 display: grid;
                 grid-template-columns: 1fr  1fr ;
+                
                 padding: 0 1rem;
                 gap: 2rem;
                 p{
@@ -58,8 +55,8 @@ export const ImageContainer = styled.div`
             display: flex;
             justify-content: center;
             align-items: center; 
-            width: 240px;
-            height: 234px;
+            max-width: 240px;
+            max-height: 234px;
             background-color: #F7F7F7;
             
         a{  
@@ -78,8 +75,8 @@ export const ImageContainer = styled.div`
 
         @media (max-width: 425px) {
 
-            width: 8rem;
-            height: 11rem;
+            max-width: 8rem;
+            max-height: 11rem;
 
             a{
                 max-width: 100%;

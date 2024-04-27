@@ -24,7 +24,7 @@ export const Nav = styled.nav`
 
 export const ContainerImage = styled.div`
         svg{
-                width: 5rem;
+                max-width: 5rem;
                 font-size: 4rem;
                 color: rgb(255, 165, 0);
                 animation: home 2s ease infinite alternate;
@@ -44,7 +44,7 @@ export const ContainerImage = styled.div`
                 }
 
                 @media (max-width: 425px) {
-                        width: 3rem;
+                        max-width: 3rem;
                 }
         }
 `;
@@ -92,7 +92,7 @@ export const ContainerSearch = styled.div`
 
         @media (max-width: 425px) {
                        input{
-                        width: 11rem;
+                        max-width: 11rem;
                        }
                 }
 `;
@@ -101,9 +101,9 @@ export const LocContainer = styled.div`
                 display: flex;
                 align-items: center;
                 gap: .5rem;
-                padding-left: 2rem ;
+                padding: .5rem 0 .5rem 2rem  ;
                 background-color: #232F3E;
-                height: 3.5rem;
+                max-height: 3.5rem;
                 color: #fff;
 
                 svg{

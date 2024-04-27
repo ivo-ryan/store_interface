@@ -7,17 +7,9 @@ export const MainContainer = styled.main`
             flex-direction: column;
             gap: 3rem;
             min-height: 80vh;
-            margin-top: 10%;
+            margin-top: 11rem;
             margin-bottom: 2rem;
             transition: all .5s ease;
-
-            @media (max-width: 768px) {
-                margin-top: 20%;
-            }
-
-            @media (max-width: 425px) {
-                margin-top: 40%;
-            }
 
 `;
 
@@ -103,8 +95,8 @@ export const MainImg = styled.div`
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 430px;
-            height: 340px;
+            max-width: 430px;
+            max-height: 340px;
 
             img{
                 max-width: 100%;
@@ -112,8 +104,8 @@ export const MainImg = styled.div`
             }
 
             @media (max-width: 425px) {
-                width: 200px;
-                height: 250px;
+                max-width: 200px;
+                max-height: 250px;
                 margin-top: 2rem;
             }
 `;
