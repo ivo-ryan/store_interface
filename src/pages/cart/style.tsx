@@ -41,7 +41,7 @@ export const ProductContainer = styled.div`
             border-bottom: 1px solid #c4c4c4;
 
             @media (max-width: 425px) {
-                min-width: 100%;
+                width: 90vw;
             }
 `;
 
@@ -139,6 +139,7 @@ export const FinishCompra = styled.div`
         width: 80%;
 
         @media (max-width: 425px) {
+                        display: flex;
                         flex-direction: column;
                         width: 100%;
                         gap: 1rem;
