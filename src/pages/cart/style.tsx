@@ -37,8 +37,11 @@ export const ProductContainer = styled.div`
             justify-content: space-between;
             gap: 1rem;
             padding: 1rem;
-            width: 100%;
             border-bottom: 1px solid #c4c4c4;
+
+            @media (max-width:1440px) {
+                width: 70%;
+            }
 
             @media (max-width: 425px) {
                 width: 100%;
