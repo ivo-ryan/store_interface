@@ -92,7 +92,7 @@ export const ContainerSearch = styled.div`
 
         @media (max-width: 425px) {
                        input{
-                        max-width: 11rem;
+                        width: 11rem;
                        }
                 }
 `;

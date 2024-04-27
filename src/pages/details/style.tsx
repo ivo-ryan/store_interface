@@ -95,17 +95,19 @@ export const MainImg = styled.div`
             display: flex;
             justify-content: center;
             align-items: center;
-            max-width: 430px;
-            max-height: 340px;
-
+            
             img{
-                width: 100%;
-                height: 100%;
+                transition: all .5s ease;
+                max-width: 430px;
+                max-height: 380px;
             }
 
             @media (max-width: 425px) {
-                max-width: 150px;
-                max-height: 250px;
+
+                img{
+                    max-width: 150px;
+                    max-height: 250px;
+                }
             }
 `;
 
