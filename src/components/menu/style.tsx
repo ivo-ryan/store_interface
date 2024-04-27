@@ -18,6 +18,16 @@ export const SectionProduct = styled.section`
             }
 
             @media (max-width: 425px) {
+                padding: 0 1rem;
+                gap: 2rem;
+                justify-content: space-around;
+
+                p{
+                    font-size: 1.3rem;
+                }
+            }
+
+            @media (max-width: 375px) {
                 display: grid;
                 grid-template-columns: 1fr  1fr ;
                 
@@ -41,10 +51,10 @@ export const Product = styled.div`
         padding: 0 1rem;
 
         @media (max-width: 425px) {
-            justify-content: center;
+            justify-content: space-evenly;
             max-width: 140px;
             padding: 0 .5rem ;
-            height: 230px;
+            height: 260px;
             gap: 1rem;
         }
 
@@ -54,32 +64,31 @@ export const Product = styled.div`
 export const ImageContainer = styled.div`
             display: flex;
             justify-content: center;
-            align-items: center; 
-            max-width: 240px;
-            max-height: 234px;
+            align-items: center;         
             background-color: #F7F7F7;
             
         a{  
             display: flex;
             justify-content: center;
             align-items: center; 
-            width: 100%;
-            height: 100%;
+            max-width: 100%;
             padding: 1rem;
 
             img{
-            height: 100%;
+            max-height: 18rem;
             width: 100%;
         }
         }
 
         @media (max-width: 425px) {
 
-            max-width: 8rem;
-            max-height: 11rem;
-
             a{
-                width: 100%;
+                max-width: 8rem;
+
+               img{
+                    max-height: 10rem;
+                    width: 100%;
+               }
             }
         }
 
