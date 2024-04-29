@@ -1,4 +1,4 @@
-# Streaming Interface
+# Store Ecomerce
 
 Este projeto foi criado no intuito de ser o mais aproximado possível de uma loja de ecommerce , onde o usuário visualiza os produtos e adiciona os de sua preferência no carrinho , para este projeto foi criada uma api para conter todas as informações dos produtos nela .
 
