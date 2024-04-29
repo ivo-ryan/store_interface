@@ -1,30 +1,32 @@
-# React + TypeScript + Vite
+# Streaming Interface
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto foi criado no intuito de ser o mais aproximado possível de uma loja de ecommerce , onde o usuário visualiza os produtos e adiciona os de sua preferência no carrinho , para este projeto foi criada uma api para conter todas as informações dos produtos nela .
 
-Currently, two official plugins are available:
+A maior dificuldade que eu encontrei foi a criação da api , onde eu usei o node , o express e o mongoDB , todo o projeto foi feito buscando a melhor experiência do usuário e a performace do site.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[
+   <img src=""/>
+](https://store-interface.vercel.app)
 
-## Expanding the ESLint configuration
+## Tecnologias Utilizadas
+- TypeScript 
+- React 
+- React-router 
+- Styled-components 
+- Node.js 
+- Express
+- MongoDB
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## Como utilizar
+1 - Clone o projeto
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+git clone <url>
+```
+2 - Instale as dependências 
+```
+npm install
+```
+3 - Rode o projeto
+```
+npm run dev
+```
