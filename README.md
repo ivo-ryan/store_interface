@@ -5,7 +5,7 @@ Este projeto foi criado no intuito de ser o mais aproximado possível de uma loj
 A maior dificuldade que eu encontrei foi a criação da api , onde eu usei o node , o express e o mongoDB , todo o projeto foi feito buscando a melhor experiência do usuário e a performace do site.
 
 [
-   <img src=""/>
+   <img src="./store.gif"/>
 ](https://store-interface.vercel.app)
 
 ## Tecnologias Utilizadas
