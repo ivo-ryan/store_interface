@@ -54,6 +54,7 @@ export const FormContainer = styled.div`
         height: 100%;       
         border-radius: 10px;
         transition: all .5s ease;
+        margin-top: 2rem;
 
 `;
 
@@ -81,7 +82,7 @@ export const Container = styled.div`
                 }
             }
 
-            @media (max-width: 425px) {
+            @media (max-width: 450px) {
                 width: 80%;
                 padding: 20px 40px;
                 height: 100%;
@@ -190,7 +191,7 @@ export const MsgSucesso = styled.div`
                 color: #004085;
             }
 
-            @media (max-width: 425px) {
+            @media (max-width: 450px) {
                 margin-top: 10px;
             }
 

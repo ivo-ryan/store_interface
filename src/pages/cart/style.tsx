@@ -7,15 +7,16 @@ export const MainContainer = styled.main`
 
 
 export const ImageProduct = styled.div`
+        display: flex;
         img{
             max-width: 6rem;
             max-height: 7rem;
         }
 
-        @media (max-width: 425px) {
+        @media (max-width: 450px) {
            img { 
             max-width: 5rem;
-            max-height: 6rem;
+            max-height: 7rem;
         }
         }
 `;
@@ -40,7 +41,7 @@ export const ProductContainer = styled.div`
             width: 70%;
             border-bottom: 1px solid #c4c4c4;
 
-            @media (max-width: 425px) {
+            @media (max-width: 450px) {
                 width: 100%;
             }
 `;
@@ -49,7 +50,7 @@ export const ContainerDeleteAndPrice = styled.div`
             display: flex;
             gap: 2rem;
 
-            @media (max-width: 425px) {
+            @media (max-width: 450px) {
                 max-width: 8rem;
                 gap: 1rem;
             }
@@ -75,9 +76,9 @@ export const PriceContainer = styled.div`
             
         }
 
-        @media (max-width: 425px) {
+        @media (max-width: 450px) {
             p{
-                font-size: 1.3rem;
+                font-size: 1.4rem;
             }
         }
 `;
@@ -87,9 +88,9 @@ export const MProduct = styled.div`
                 font-weight: 600;
                 padding-top: .5rem;}
 
-                @media (max-width: 425px) {
+                @media (max-width: 450px) {
                     p{
-                    font-size: 1.2rem;
+                    font-size: 1.3rem;
                     }
                 }
 `;
@@ -100,8 +101,7 @@ export const ContainerInfo = styled.div`
             align-items: center;
             gap: 2rem;
 
-            @media (max-width: 425px) {
-                    display: block;
+            @media (max-width: 450px) {
                      gap: 1rem ; 
                      width: 70%;
                 }
@@ -123,9 +123,9 @@ export const ContainerButton = styled.div`
             background-color: rgb(219, 60, 3);
         }}
 
-        @media (max-width: 425px) {
+        @media (max-width: 450px) {
                         button{
-                           font-size: 1.3rem;
+                           font-size: 1.6rem;
                            font-weight: 600;
                            padding: .4rem .5rem;
                         }
@@ -138,14 +138,14 @@ export const FinishCompra = styled.div`
         align-items: center;
         width: 80%;
 
-        @media (max-width: 425px) {
+        @media (max-width: 450px) {
                         display: flex;
                         flex-direction: column;
                         width: 100%;
                         gap: 1rem;
 
                         h2{
-                            font-size: 1.5rem;
+                            font-size: 1.8rem;
                         }
                 }
 `;
@@ -161,12 +161,12 @@ export const QuantityProducts = styled.div`
             font-size: 1.6rem;
         }
     }
-    @media (max-width: 425px) {
+    @media (max-width: 450px) {
                        p{
-                        font-size: 1.4rem;
+                        font-size: 1.6rem;
 
                         span{
-                            font-size: 1.3rem;
+                            font-size: 1.4rem;
                         }
                        }
                 }
@@ -197,9 +197,9 @@ export const FinishPrice = styled.div`
 
     }
 
-    @media (max-width: 425px) {
+    @media (max-width: 450px) {
                       h4{
-                        font-size: 1.2rem;
+                        font-size: 1.5rem;
                       }
 
                       p{

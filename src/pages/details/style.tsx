@@ -102,7 +102,7 @@ export const MainImg = styled.div`
                 max-height: 380px;
             }
 
-            @media (max-width: 425px) {
+            @media (max-width: 450px) {
 
                 img{
                     max-width: 150px;
@@ -119,7 +119,7 @@ export const InfoContainer = styled.div`
                 max-width: 60%;
             }
 
-            @media (max-width: 425px) {
+            @media (max-width: 450px) {
                 max-width: 80%;
             }
 `;
@@ -184,7 +184,7 @@ export const ButtonContainer = styled.div`
             }
 
             
-            @media (max-width: 425px) {
+            @media (max-width: 450px) {
                 width: 100%;
                 button{
                     font-weight: 600;
@@ -240,7 +240,7 @@ export const SecurityContainer = styled.div`
                 }
 
                 
-            @media (max-width: 425px) {
+            @media (max-width: 450px) {
                 p{
                     font-size: 1.4rem;
                 }

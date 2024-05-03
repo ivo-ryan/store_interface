@@ -28,7 +28,7 @@ export const Apresentação = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 50%;
+        height: 25vh;
         width: 80%;
         gap: 16px;
         transition: all .5s ease;
@@ -37,9 +37,9 @@ export const Apresentação = styled.div`
             width: 80%;
         }
 
-        @media (max-width: 425px) {
+        @media (max-width: 450px) {
             width: 90%;
-            height: 70%;
+            height: 30vh;
         }
 `;
 
@@ -50,7 +50,7 @@ export const ContainerH2 = styled.div`
             font-size: 5rem;
         }
 
-        @media (max-width: 425px){
+        @media (max-width: 450px){
                 h2{
                     font-size: 3rem;
                 }
@@ -64,7 +64,7 @@ export const ContainerText = styled.div`
             font-size: 2.3rem;
         }
 
-        @media (max-width: 425px) {
+        @media (max-width: 450px) {
             p{
                 font-size: large;
             }
@@ -88,7 +88,7 @@ export const ContainerValidate = styled.div`
             width: 85%;
         }
 
-        @media (max-width: 425px) {
+        @media (max-width: 450px) {
             width: 95%;
             p{
                 font-size: large;
@@ -127,7 +127,7 @@ export const ContainerButtom = styled.div`
             }
         }
 
-        @media (max-width: 425px) {
+        @media (max-width: 450px) {
             button{
                 font-size: large;
             }

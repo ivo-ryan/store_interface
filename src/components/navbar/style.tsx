@@ -17,7 +17,7 @@ export const Nav = styled.nav`
         align-items: center;
         padding: 0 2rem ;
 
-        @media (max-width: 425px) {
+        @media (max-width: 450px) {
                         padding: 0 .5rem;
                 }
 `;
@@ -43,7 +43,7 @@ export const ContainerImage = styled.div`
                         }
                 }
 
-                @media (max-width: 425px) {
+                @media (max-width: 450px) {
                         max-width: 3rem;
                 }
         }
@@ -56,7 +56,7 @@ export const Search = styled.div`
             color: black;
             gap: 2rem;
 
-            @media (max-width: 425px) {
+            @media (max-width: 450px) {
                         gap: .5rem ;
                 }
 
@@ -90,7 +90,7 @@ export const ContainerSearch = styled.div`
                 }
         }
 
-        @media (max-width: 425px) {
+        @media (max-width: 450px) {
                        input{
                         width: 11rem;
                        }

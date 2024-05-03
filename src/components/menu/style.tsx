@@ -17,13 +17,13 @@ export const SectionProduct = styled.section`
                 color: black;
             }
 
-            @media (max-width: 425px) {
+            @media (max-width: 450px) {
                 padding: 0 1rem;
                 gap: 2rem;
                 justify-content: space-around;
 
                 p{
-                    font-size: 1.3rem;
+                    font-size: 1.4rem;
                 }
             }
 
@@ -48,9 +48,9 @@ export const Product = styled.div`
         gap: 1rem;
         padding: 0 1rem;
 
-        @media (max-width: 425px) {
+        @media (max-width: 450px) {
             justify-content: space-evenly;
-            width: 140px;
+            width: 150px;
             padding: 0 .5rem ;
             height: 260px;
             gap: 1rem;
@@ -78,10 +78,10 @@ export const ImageContainer = styled.div`
         }
         }
 
-        @media (max-width: 425px) {
+        @media (max-width: 450px) {
 
             a{
-                max-width: 8rem;
+                max-width: 10rem;
 
                img{
                     max-height: 10rem;
@@ -104,8 +104,8 @@ export const PriceProduct = styled.p`
             
         }
 
-        @media (max-width: 425px) {
-            font-size: 1.6rem;
+        @media (max-width: 450px) {
+            font-size: 1.5rem;
         }
 `;
 
@@ -125,9 +125,9 @@ export const Button = styled.div`
             background-color: #F7CA00;
         }
 
-        @media (max-width: 425px) {
+        @media (max-width: 450px) {
             padding: .5rem .6rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 600;
         }
 }
