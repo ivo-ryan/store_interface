@@ -98,15 +98,15 @@ export const MainImg = styled.div`
             
             img{
                 transition: all .5s ease;
-                max-width: 430px;
-                max-height: 380px;
+                width: 430px;
+                height: 380px;
             }
 
             @media (max-width: 450px) {
 
                 img{
-                    max-width: 150px;
-                    max-height: 250px;
+                    width: 150px;
+                    height: 250px;
                 }
             }
 `;
