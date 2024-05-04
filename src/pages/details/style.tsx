@@ -7,7 +7,7 @@ export const MainContainer = styled.main`
             flex-direction: column;
             gap: 3rem;
             min-height: 80vh;
-            margin-top: 11rem;
+            margin-top: 15rem;
             margin-bottom: 2rem;
             transition: all .5s ease;
 
@@ -95,18 +95,22 @@ export const MainImg = styled.div`
             display: flex;
             justify-content: center;
             align-items: center;
+            width: 430px;
+            height: 380px;
+            transition: all .5s ease;
             
             img{
-                transition: all .5s ease;
-                width: 430px;
-                height: 380px;
+                max-width: 100%;
+                max-height: 100%;
             }
 
             @media (max-width: 450px) {
-
-                img{
-                    max-width: 280px;
+                    width: 200px;
                     height: 250px;
+
+                img{                  
+                    max-width: 100%;
+                    max-height: 100%;
                 }
             }
 `;
