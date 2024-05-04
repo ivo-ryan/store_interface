@@ -28,7 +28,7 @@ export const Apresentação = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 30vh;
+        height: 20rem;
         width: 80%;
         gap: 16px;
         transition: all .5s ease;
@@ -39,7 +39,7 @@ export const Apresentação = styled.div`
 
         @media (max-width: 450px) {
             width: 90%;
-            height: 25vh;
+            height: 15rem;
         }
 `;
 
