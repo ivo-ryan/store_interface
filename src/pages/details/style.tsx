@@ -105,7 +105,7 @@ export const MainImg = styled.div`
             @media (max-width: 450px) {
 
                 img{
-                    width: 200px;
+                    max-width: 200px;
                     height: 250px;
                 }
             }
