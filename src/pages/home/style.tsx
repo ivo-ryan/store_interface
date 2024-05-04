@@ -28,7 +28,7 @@ export const Apresentação = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 25vh;
+        height: 30vh;
         width: 80%;
         gap: 16px;
         transition: all .5s ease;
@@ -39,7 +39,7 @@ export const Apresentação = styled.div`
 
         @media (max-width: 450px) {
             width: 90%;
-            height: 30vh;
+            height: 25vh;
         }
 `;
 
@@ -66,7 +66,7 @@ export const ContainerText = styled.div`
 
         @media (max-width: 450px) {
             p{
-                font-size: large;
+                font-size: 1.7rem;
             }
         }
 `;
@@ -91,7 +91,7 @@ export const ContainerValidate = styled.div`
         @media (max-width: 450px) {
             width: 95%;
             p{
-                font-size: large;
+                font-size: 1.4rem;
             }
         }
 `;
