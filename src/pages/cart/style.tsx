@@ -42,7 +42,7 @@ export const ProductContainer = styled.div`
             border-bottom: 1px solid #c4c4c4;
 
             @media (max-width: 450px) {
-                max-width: 90%;
+                min-width: 90%;
             }
 `;
 
