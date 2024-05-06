@@ -26,7 +26,7 @@ git clone <url>
 ```
 npm install
 ```
-3 - Rode o projeto
+3 - Inicialize o projeto
 ```
 npm run dev
 ```
